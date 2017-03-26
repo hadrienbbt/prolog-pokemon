@@ -14,9 +14,9 @@
 :- consult('fact/description.pl').
 :- consult('fact/tests.pl').
 
-% ****************** regles ******************
+% ****************** règles ******************
 
-:- consult('rule/direction.pl').
+:- consult('rule/movement.pl').
 :- consult('rule/bag.pl').
 :- consult('rule/fight.pl').
 :- consult('rule/belonging.pl').

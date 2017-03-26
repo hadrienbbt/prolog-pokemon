@@ -49,9 +49,21 @@ chemin(safrania,g,r10).
 chemin(bourgpalette,g,r8).
 chemin(r8,g,azuria).
 
+% Reciproque
+chemin(Y,h,X) :- chemin(X,b,Y).
+chemin(Y,d,X) :- chemin(X,g,Y).
+
 % chenal/3
 chenal(carminsurmer,d,r10).
+
+% Reciproque
+chenal(X,h,Y) :- chenal(Y,b,X).
+chenal(X,d,Y) :- chenal(Y,g,X).
 
 % piste_cyclable/3
 piste_cyclable(r11,g,celadopole).
 piste_cyclable(volcan,g,r11).
+
+% Reciproque
+piste_cyclable(X,h,Y) :- piste_cyclable(Y,b,X).
+piste_cyclable(X,d,Y) :- piste_cyclable(Y,g,X).
