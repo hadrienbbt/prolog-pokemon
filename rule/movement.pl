@@ -3,15 +3,6 @@ b :- aller(b).
 g :- aller(g).
 d :- aller(d).
 
-chemin(Y,h,X) :- chemin(X,b,Y).
-chemin(Y,d,X) :- chemin(X,g,Y).
-
-chenal(X,h,Y) :- chenal(Y,b,X).
-chenal(X,d,Y) :- chenal(Y,g,X).
-
-piste_cyclable(X,h,Y) :- piste_cyclable(Y,b,X).
-piste_cyclable(X,d,Y) :- piste_cyclable(Y,g,X).
-
 % aller/1
 
 aller(Direction) :-

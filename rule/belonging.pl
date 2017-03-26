@@ -1,5 +1,8 @@
 %% Regles d appartenance pokemon
 
+:- dynamic se_trouve_a/2, capturer/1, afficher_equipe/0.
+:- retractall(se_trouve_a(_)).
+
 capturer(X) :-
     je_suis_a(Endroit),
     se_trouve_a(X, Endroit),
@@ -43,3 +46,21 @@ ne_possede_pas([H|Q],Pokemon) :-
 	H \= Pokemon,
 	ne_possede_pas(Q,Pokemon),
 	!.
+
+afficher_equipe :-
+    equipe(X),
+    afficher_equipe(X).
+
+afficher_equipe([]) :-
+    write("fin").
+
+afficher_equipe([UnPokemon]) :-
+    pokemon(UnPokemon,Niveau),
+    write("Vous possédez un "), write(UnPokemon), write(" de niveau "), write(Niveau),
+    nl,!.
+
+afficher_equipe([UnPokemon|Reste]) :-
+    pokemon(UnPokemon,Niveau),
+    write("Vous possédez un "), write(UnPokemon), write(" de niveau "), write(Niveau),
+    nl,
+    afficher_equipe(Reste).

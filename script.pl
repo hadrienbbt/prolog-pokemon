@@ -20,3 +20,7 @@
 :- consult('rule/bag.pl').
 :- consult('rule/fight.pl').
 :- consult('rule/belonging.pl').
+
+% ***************** joueur automatique **************
+
+:- consult('autoplay.pl').

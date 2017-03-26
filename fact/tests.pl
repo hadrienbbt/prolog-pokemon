@@ -6,3 +6,4 @@ il_y_a(baie,bourgpalette).
 se_trouve_a(sulfura,bourgpalette).
 se_trouve_a(salameche,bourgpalette).
 se_trouve_a(bulbizarre,bourgpalette).
+se_trouve_a(carapuce,bourgpalette).

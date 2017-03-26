@@ -1,5 +1,6 @@
 %% Décrire %%
 
+
 decrire(r1):-
 	write("Vous arrivez sur la route numéro 1, face à vous se dresse un Chenipan sauvage. Que faire ?"),nl.
 
