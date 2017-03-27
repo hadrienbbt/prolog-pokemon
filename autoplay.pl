@@ -4,6 +4,6 @@
 :- dynamic afficher_equipe/0, capturer/1.
 
 autoplay :-
-    assert(capturer(sulfura)),
-    assert(capturer(bulbizarre)),
-    assert(afficher_equipe).
+    capturer(sulfura),
+    capturer(bulbizarre),
+    afficher_equipe.

@@ -1,3 +1,7 @@
+:- dynamic chemin/3, montagne/3.
+:- retractall(montagne(_,_,_)).
+
+
 % ville/1
 
 ville(bourgpalette).
@@ -34,7 +38,6 @@ chemin(r3,b,argenta).
 chemin(argenta,b,r4).
 chemin(r4,b,celadopole).
 chemin(r7,b,safrania).
-chemin(bourgpalette,b,r7).
 chemin(azuria,b,r9).
 chemin(r9,b,carminsurmer).
 
@@ -47,7 +50,7 @@ chemin(r5,g,safrania).
 chemin(r6,g,bourgpalette).
 chemin(safrania,g,r10).
 chemin(bourgpalette,g,r8).
-chemin(r8,g,azuria).
+%chemin(r8,g,azuria).
 
 % Reciproque
 chemin(Y,h,X) :- chemin(X,b,Y).
@@ -59,6 +62,13 @@ chenal(carminsurmer,d,r10).
 % Reciproque
 chenal(X,h,Y) :- chenal(Y,b,X).
 chenal(X,d,Y) :- chenal(Y,g,X).
+
+% montagne/3
+montagne(bourgpalette,b,r7).
+
+% Reciproque
+montagne(X,h,Y) :- montagne(Y,b,X).
+montagne(X,d,Y) :- montagne(Y,g,X).
 
 % piste_cyclable/3
 piste_cyclable(r11,g,celadopole).

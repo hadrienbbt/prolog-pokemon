@@ -1,4 +1,3 @@
-
 % attaquer/3 arguments : pokemon, personne, pokemon
 
 % Si On est pas au bon endroit

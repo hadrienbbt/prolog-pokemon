@@ -3,10 +3,16 @@ sac([]).
 equipe([]).
 mecanicien([]).
 
-dresseur(morgane,alakazam).
+dresseur(ondine,voltorbe).
 dresseur(pierre,onyx).
+dresseur(teamrocket,miaouss).
+dresseur(morgane,alakazam).
 
+recompenseVictoire(ondine,roue).
+recompenseVictoire(pierre,chaine).
 recompenseVictoire(morgane,pedale).
 
-estChampion(morgane,bourgpalette).
-estChampion(pierre,azuria).
+estChampion(ondine,lavanville).
+estChampion(pierre,argenta).
+estChampion(morgane,safrania).
+estChampion(teamrocket,celadopole).

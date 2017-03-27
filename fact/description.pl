@@ -61,7 +61,7 @@ decrire(r8):-
 	write("Vous arrivez sur la route numéro 8, un Ronflex endormi bloque le passage. Que faire pour le réveiller ?"),nl.
 
 decrire(azuria):-
-	write("Vous arrivez à Azuria. Vous retrouvez votre Lokhlass mais il semble très faible, il a besoin d’être soigné."),nl.
+	write("Vous arrivez à Azuria. Vous retrouvez votre Lokhlass mais il semble très faible, il a besoin d’être soigné. Il faudrait donner une baie à l'infirmière Joelle"),nl.
 
 decrire(r9):-
 	write(" Vous arrivez sur la route numéro 9. Ici, des centaines de papillusion vous entoure, on dirait un repère fait pour le bonheur des papillusions. Peut être devriez vous y laisser le votre. "),nl.

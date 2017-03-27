@@ -27,7 +27,7 @@ pokemon(onyx,3).
 pokemon(voltorbe,1).
 
 % Team Rocket
-pokemon(miaous,3).
+pokemon(miaouss,3).
 
 % evolue/2
 
@@ -42,7 +42,7 @@ maitrise(sabelette, tunnel).
 
 % se_trouve_a/2
 
-se_trouve_a(salameche,r2).
+se_trouve_a(chenipan,r1).
 se_trouve_a(colossinge,r3).
 se_trouve_a(sabelette,r5).
 se_trouve_a(ronflex,r8).

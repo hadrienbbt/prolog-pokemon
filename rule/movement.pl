@@ -1,7 +1,17 @@
+:- dynamic chemin/3, montagne/3.
+:- retractall(montagne(_,_,_)).
+
 h :- aller(h).
 b :- aller(b).
 g :- aller(g).
 d :- aller(d).
+
+% montagne/3
+montagne(bourgpalette,b,r7).
+
+% Reciproque
+montagne(X,h,Y) :- montagne(Y,b,X).
+montagne(X,d,Y) :- montagne(Y,g,X).
 
 % aller/1
 
@@ -38,3 +48,26 @@ surfer(Direction) :-
 
 surfer(_):-
 	write("Vous ne pouvez pas surfer ici").
+	
+creuser(Direction):-
+	possede(sabelette),
+	je_suis_a(Ici),
+	montagne(Ici,Direction,Labas),
+	write('La route est désormais creusée, vous pouvez circuler librement'),
+	retract(je_suis_a(Ici)),
+	assert(je_suis_a(Labas)),
+	retract(montagne(bourgpalette,b,r7)),
+	assert(chemin(bourgpalette,b,r7)),
+	nl,
+	decrire(Labas),
+	!.
+
+creuser(Direction):-
+	equipe(X),
+	ne_possede_pas(X,sabelette),
+	write('Vous ne pouvez pas creuser, il vous faut un pokemon possédant la capacité tunnel'),
+	!,nl.
+	
+creuser(_):-
+	write('Vous ne pouvez pas creuser ici'),
+	!,nl.

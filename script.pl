@@ -12,7 +12,6 @@
 :- consult('fact/item.pl').
 :- consult('fact/character.pl').
 :- consult('fact/description.pl').
-:- consult('fact/tests.pl').
 
 % ****************** règles ******************
 
@@ -24,3 +23,16 @@
 % ***************** joueur automatique **************
 
 :- consult('autoplay.pl').
+
+
+fouiller :-
+	je_suis_a(Endroit),
+	Endroit==r2,
+	assert(se_trouve_a(salameche,r2)),
+	write('Oh Salamèche se cache derrière les buissons. Que voulez vous faire ?'),
+	!,nl.
+
+fouiller :-
+	write('Il n\'y a rien ici'),
+	!,nl.
+

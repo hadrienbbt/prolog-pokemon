@@ -52,7 +52,7 @@ afficher_equipe :-
     afficher_equipe(X).
 
 afficher_equipe([]) :-
-    write("fin").
+    write("Vous n'avez pas de pokemon dans votre équipe."),nl.
 
 afficher_equipe([UnPokemon]) :-
     pokemon(UnPokemon,Niveau),
