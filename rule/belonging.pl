@@ -3,6 +3,10 @@
 :- dynamic se_trouve_a/2, capturer/1, afficher_equipe/0.
 :- retractall(se_trouve_a(_)).
 
+capturer(ronflex) :-
+    write("Vous lancez la pokeball mais elle rebondit sur son ventre. Cela n'a aucun effet, il faudra essayer autre chose pour le réveiller."),
+    !,nl.
+
 capturer(X) :-
     je_suis_a(Endroit),
     se_trouve_a(X, Endroit),

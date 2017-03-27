@@ -10,14 +10,23 @@ decrire(jadielle):-
 	Finalement une jeune fille vous conseille de voyager vers l’est sur la route numéro 2."),nl.
 
 decrire(r2):-
-	write("Vous arrivez sur la route numéro 2, vous apercevez au nord des buissons derrière lesquels semble surgir une flamme. Prendrez vous le risque de vous y aventurer ? ."),nl.
+	write("Vous arrivez sur la route numéro 2, vous apercevez au nord des buissons derrière lesquels semble surgir une flamme. Prendrez vous le risque de vous y aventurer ?"),nl.
 
 decrire(buisson):-
 	write("Pas trop rassuré, vous vous avancez timidement derrière les buissons et… Surprise ! C’est votre Salamèche égaré qui est en train de faire la sieste paisiblement. Vous le réveillez et il vient s’ajouter à vos pokémons."),nl,
 	capturer(salameche).
 
 decrire(lavanville):-
-	write("Vous arrivez à Lavanville. Pour aller plus loin vous devez remporter le badge de la ville, pour cela il vous faut triompher de l’arène. Le combat est lancé !"),nl.
+    estChampion(Dresseur,lavanville),
+    dresseur(Dresseur,Pokemon),
+	write("Vous arrivez à Lavanville. Pour aller plus loin vous devez remporter le badge de la ville, pour cela il vous faut triompher de l’arène."),
+	write(" Le combat vous opposera à "),write(Dresseur),write(" et son "),write(Pokemon),
+	write(". Que voulez-vous faire ?"),
+	!,nl.
+
+decrire(lavanville):-
+	write("Ondine vous félicite pour votre victoire et vous souhaite du courage pour retrouver vos pokemons. Elle se souvient d'ailleurs qu'elle a vu un $POKEMON$ non loin d'ici. Pas de temps à perdre, il faut se remettre en route !"),
+	nl.
 
 decrire(r3):-
 	write("Vous arrivez sur la route numéro 3, face à vous se dresse un Colossinge sauvage. Que faire ? "),nl.
@@ -88,4 +97,3 @@ decrire(r11):-
 decrire(volcan):-
 	possede(colossinge),
 	write("Un vieux sage vous propose d'échanger Colossinge et Sabelette en échange d'une masterball, ball qui ne rate jamais"),nl.
-

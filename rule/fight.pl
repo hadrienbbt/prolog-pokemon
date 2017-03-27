@@ -1,3 +1,22 @@
+% attaquer/1 param : pokemon attaquant
+
+attaquer_avec(Attaquant) :-
+    je_suis_a(Endroit),
+    estChampion(Dresseur,Endroit),
+    dresseur(Dresseur,Defenseur),
+    attaquer(Attaquant,Dresseur,Defenseur),
+    !.
+
+attaquer_avec(_) :-
+    je_suis_a(Endroit),
+    se_trouve_a(_,Endroit),
+    write("Vous ne pouvez pas attaquer ce pokemon. Essayez plutôt de le capturer !"),
+    !,nl.
+
+attaquer_avec(_) :-
+    write("Il n'y a pas de pokemon a attraper ici "),
+    !,nl.
+    
 % attaquer/3 arguments : pokemon, personne, pokemon
 
 % Si On est pas au bon endroit
@@ -51,4 +70,6 @@ recompenser(Champion) :-
     recompenseVictoire(Champion,Recompense),
     ajouter_sac(Recompense),
     write('Vous avez obtenu : '), write(Recompense), nl,
-    retractall(recompenseVictoire(Champion,Recompense)).
+    retractall(recompenseVictoire(Champion,Recompense)),
+    je_suis_a(Endroit),
+    decrire(Endroit).

@@ -1,3 +1,5 @@
+:- dynamic se_trouve_a/2.
+
 % test :
 il_y_a(pedale,bourgpalette).
 il_y_a(roue,bourgpalette).

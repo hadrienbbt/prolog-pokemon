@@ -62,7 +62,7 @@ creuser(Direction):-
 	decrire(Labas),
 	!.
 
-creuser(Direction):-
+creuser(_):-
 	equipe(X),
 	ne_possede_pas(X,sabelette),
 	write('Vous ne pouvez pas creuser, il vous faut un pokemon possédant la capacité tunnel'),

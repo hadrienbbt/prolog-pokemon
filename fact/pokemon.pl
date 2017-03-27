@@ -51,3 +51,9 @@ se_trouve_a(carapuce,carminsurmer).
 se_trouve_a(roucoups,r11).
 se_trouve_a(lokhlass,azuria).
 se_trouve_a(bulbizarre,celadopole).
+
+se_trouve_a(sulfura,bourgpalette).
+se_trouve_a(salameche,bourgpalette).
+se_trouve_a(bulbizarre,bourgpalette).
+se_trouve_a(carapuce,bourgpalette).
+se_trouve_a(ronflex,r8).
