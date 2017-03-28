@@ -11,6 +11,7 @@ dresseur(morgane,alakazam).
 recompenseVictoire(ondine,roue).
 recompenseVictoire(pierre,chaine).
 recompenseVictoire(morgane,pedale).
+recompenseVictoire(teamrocket,baie).
 
 estChampion(ondine,lavanville).
 estChampion(pierre,argenta).

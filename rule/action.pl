@@ -34,14 +34,15 @@ reparer_velo :-
     nl,!.
 
 reparer_velo :-
-    mecanicien(Outils),
-    memberchk(roue,Outils),
+	sac(Outils),
+	memberchk(roue,Outils),
     memberchk(chaine,Outils),
     memberchk(pedale,Outils),
     donner(roue,mecanicien),
     donner(chaine,mecanicien),
     donner(pedale,mecanicien),
     write("Votre vélo est réparé, vous pouvez désormais emprunter les pistes cyclables !"),
+    ajouter_sac(velo),
     nl,!.
 
 reparer_velo :-

@@ -28,7 +28,7 @@ decrire(lavanville):-
 	!,nl.
 
 decrire(lavanville):-
-	write("Ondine vous félicite pour votre victoire et vous souhaite du courage pour retrouver vos pokemons. Elle se souvient d'ailleurs qu'elle a vu un $POKEMON$ non loin d'ici. Pas de temps à perdre, il faut se remettre en route !"),
+	write("Vous arrivez à Lavanville."),
 	nl.
 
 decrire(r3):-
@@ -44,7 +44,7 @@ decrire(argenta):-
 	!,nl.
 
 decrire(argenta):-
-	write("Pierre vous félicite pour votre victoire. Vous tentez de le remercier mais son regard s'est déjà porté sur la jolie agent Jenny qui passait par là. Il ne fait plus attention à vous et propose à Jenny de s'installer avec lui dans son arène. Ce n'est pas vos affaires, de toutes façons vous n'avez pas de temps à perdre, il faut se remettre en route !"),
+	write("Vous arrivez à Argenta"),
 	nl.
 
 decrire(r4):-
@@ -74,10 +74,12 @@ decrire(r6):-
 	!.
 
 decrire(r7):-
-	write("Apres avoir utilisé tunnel, vous vous trouvez sous la montagne."),nl.
+	sac(Sac),
+	memberchk(masterball,Sac),
+	write("Apres avoir utilisé tunnel, vous vous trouvez sous la montagne.Oh soudain vous apercevez un superbe pokémon légendaire, c’est Sulfura!"),nl.
 
 decrire(r7):-
-	write("Apres avoir utilisé tunnel, vous vous trouvez sous la montagne.Oh soudain vous apercevez un superbe pokémon légendaire, c’est Sulfura!"),nl.
+	write("Apres avoir utilisé tunnel, vous vous trouvez sous la montagne."),nl.
 
 decrire(r8):-
 	write("Vous arrivez sur la route numéro 8, un Ronflex endormi bloque le passage. Que faire pour le réveiller ?"),nl.
@@ -101,12 +103,14 @@ decrire(r11):-
 	write("Vous vous baladez tranquillement à velo sur la piste cyclable"),nl.
 
 decrire(r11):-
-	write("Votre Roucoups survole la piste cyclable, à vous de jouer."),nl.
-
-decrire(r11):-
 	possede(roucoups),
 	write("Vous vous baladez tranquillement à vélo sur la piste cyclable"),nl.
 
 decrire(volcan):-
-	possede(colossinge),
-	write("Un vieux sage vous propose d'échanger Colossinge et Sabelette en échange d'une masterball, ball qui ne rate jamais"),nl.
+	sac(Sac),
+	memberchk(masterball,Sac),
+	write("Le vieillard espère que vous ferez un bon usage de la masterball, et vous conseille de la garder pour la capture d'un pokemon rare"),nl.
+
+decrire(volcan):-
+	write("Un vieux sage vous propose d'échanger Colossinge et Papillusion en échange d'une masterball, ball qui ne rate jamais"),nl.
+

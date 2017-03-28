@@ -3,11 +3,12 @@
 objet(pokeball).
 objet(masterball).
 objet(pokeflute).
-objet(guidon).
+objet(velo).
 objet(pedale).
 objet(chaine).
 objet(roue).
 objet(baie).
+
 
 % il_y_a/2
 

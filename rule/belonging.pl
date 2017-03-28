@@ -50,12 +50,25 @@ relacher(Pokemon) :-
 %echanger/2 pour donner 2 pokemon au vieillard
 echanger(PokemonA,PokemonB):-
 	equipe(X),
-	memberchk(PokemonA,X),
-	memberchk(PokemonB,X),
-	subtract(X,[PokemonA],Y),
-	subtract(Y,[PokemonB],NouvelleEquipe),
-    retract(equipe(Y)),
-    assert(equipe(NouvelleEquipe)),
+	PokemonA == colossinge,
+	PokemonB == papillusion,
+	relacher(PokemonA),
+	relacher(PokemonB),
+    ajouter_sac(masterball),
+    write('Vous donnez '),
+    write(PokemonA),
+    write(' et '),
+    write(PokemonB),
+    write('. Vous recevez en retour une masterball qui fait apparaître des pokemons légendaires, cette ball ne rate jamais'),
+    assert(se_trouve_a(sulfura,r7)),
+    !,nl.
+    
+echanger(PokemonA,PokemonB):-
+	equipe(X),
+	PokemonA == papillusion,
+	PokemonB == colossinge,
+	relacher(PokemonA),
+	relacher(PokemonB),
     ajouter_sac(masterball),
     write('Vous donnez '),
     write(PokemonA),
