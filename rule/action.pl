@@ -2,10 +2,6 @@
 
 :- retractall(estKO(_)).
 
-regarder_carte :-
-    je_suis_a(X),
-    write("Vous êtes à "),write(),
-
 soigner :-
     je_suis_a(Endroit),
     centrepokemon(Endroit),

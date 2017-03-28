@@ -26,7 +26,7 @@ decrire(lavanville):-
 	!,nl.
 
 decrire(lavanville):-
-	write("Ondine vous félicite pour votre victoire et vous souhaite du courage pour retrouver vos pokemons. Elle se souvient d'ailleurs qu'elle a vu un $POKEMON$ non loin d'ici. Pas de temps à perdre, il faut se remettre en route !"),
+	write("Vous arrivez à Lavanville."),
 	nl.
 
 decrire(r3):-
@@ -42,7 +42,7 @@ decrire(argenta):-
 	!,nl.
 
 decrire(argenta):-
-	write("Pierre vous félicite pour votre victoire. Vous tentez de le remercier mais son regard s'est déjà porté sur la jolie agent Jenny qui passait par là. Il ne fait plus attention à vous et propose à Jenny de s'installer avec lui dans son arène. Ce n'est pas vos affaires, de toutes façons vous n'avez pas de temps à perdre, il faut se remettre en route !"),
+	write("Vous arrivez à Argenta").
 	nl.
 
 decrire(r4):-

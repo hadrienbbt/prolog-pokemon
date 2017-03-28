@@ -13,7 +13,7 @@ pokemon(lokhlass,5).
 pokemon(chenipan,1).
 pokemon(colossinge,4).
 pokemon(sabelette,3).
-pokemon(sulfura,1).
+pokemon(sulfura,100).
 pokemon(chrysacier,2).
 pokemon(papillusion,3).
 pokemon(ronflex,4).
