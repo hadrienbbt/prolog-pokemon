@@ -22,7 +22,7 @@ capturer(X) :-
     append([X],E,NouvelleEquipe),
     retract(equipe(E)),
     assert(equipe(NouvelleEquipe)),
-    write('Le pokemon a été capturé !'),
+    write(X),write(' a été capturé !'),
     !, nl.
 
 capturer(_) :-
@@ -48,7 +48,34 @@ relacher(Pokemon) :-
 
 
 %echanger/2 pour donner 2 pokemon au vieillard
-	
+echanger(PokemonA,PokemonB):-
+	equipe(X),
+	memberchk(PokemonA,X),
+	memberchk(PokemonB,X),
+	subtract(X,[PokemonA],Y),
+	subtract(Y,[PokemonB],NouvelleEquipe),
+    retract(equipe(Y)),
+    assert(equipe(NouvelleEquipe)),
+    ajouter_sac(masterball),
+    write('Vous donnez '),
+    write(PokemonA),
+    write(' et '),
+    write(PokemonB),
+    write('. Vous recevez en retour une masterball qui fait apparaître des pokemons légendaires, cette ball ne rate jamais'),
+    assert(se_trouve_a(sulfura,r7)),
+    !,nl.
+
+echanger(PokemonA,PokemonB):-
+	equipe(X),
+	memberchk(PokemonA,X),
+	memberchk(PokemonB,X),
+	write('Le vieillard ne veut pas de ces pokémons'),
+	!,nl.
+
+echanger(_,_):-
+	write('Vous ne pouvez pas faire cet échange ici.'),
+	!,nl.
+
 % possede/1
 possede(Pokemon) :-
 	equipe(Y),

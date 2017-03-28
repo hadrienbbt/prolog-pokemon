@@ -71,3 +71,106 @@ creuser(_):-
 creuser(_):-
 	write('Vous ne pouvez pas creuser ici'),
 	!,nl.
+	
+position:-
+	je_suis_a(Ici),	
+	chemin(Ici,d,Droite),
+	chemin(Ici,g,Gacuhe),
+	chemin(Ici,h,Haut),
+	chemin(Ici,b,Bas),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('A votre droite se trouve '), write(Droite),nl,
+	write('A votre gauche se trouve '), write(Gauche),nl,
+	write('En haut se trouve '), write(Haut),nl,
+	write('En bas se trouve '), write(Bas),nl,
+	!.
+
+
+%mer a droite
+position:-
+	je_suis_a(Ici),	
+	chenal(Ici,d,Droite),
+	chemin(Ici,h,Haut),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('A votre droite se trouve un chenal pour rejoindre '), write(Droite),nl,
+	write('A votre gauche se trouve rien'),nl,
+	write('En haut se trouve '), write(Haut),nl,
+	write('En bas se trouve rien'),nl,
+	!.
+	
+%mer a gauche
+position:-
+	je_suis_a(Ici),	
+	chenal(Ici,g,Gauche),
+	chemin(Ici,d,Droite),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('A votre droite se trouve '), write(Droite),nl,
+	write('A votre gauche se trouve un chenal pour rejoindre '), write(Gauche)nl,
+	write('En haut se trouve rien'),nl,
+	write('En bas se trouve rien'),nl,
+	!.
+	
+%montagne en bas
+position:-
+	je_suis_a(Ici),	
+	chemin(Ici,d,Droite),
+	chemin(Ici,g,Gauche),
+	chemin(Ici,h,Haut),
+	montagne(Ici,b,Bas),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('A votre droite se trouve '), write(Droite),nl,
+	write('A votre gauche se trouve '), write(Gauche),nl,
+	write('En haut se trouve '), write(Haut),nl,
+	write('En bas se dresse une montagne, la '), write(Bas),nl,
+	!.
+	
+%montagne en haut
+position:-
+	je_suis_a(Ici),	
+	chemin(Ici,d,Droite),
+	chemin(Ici,g,Gauche),
+	montagne(Ici,h,Haut),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('A votre droite se trouve '), write(Droite),nl,
+	write('A votre gauche se trouve '), write(Gauche),nl,
+	write('En haut se dresse une montagne, la '), write(Haut),nl,
+	write('En bas se trouve rien'),nl,
+	!.
+
+%rien a droite
+position:-
+	je_suis_a(Ici),	
+	chemin(Ici,g,Gauche),
+	chemin(Ici,h,Haut),
+	chemin(Ici,b,Bas),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('A votre droite se trouve rien'),nl,
+	write('A votre gauche se trouve '), write(Gauche),nl,
+	write('En haut se trouve '), write(Haut),nl,
+	write('En bas se trouve '), write(Bas),nl,
+	!.
+
+%rien a gauche	
+position:-
+	je_suis_a(Ici),	
+	chemin(Ici,d,Droite),
+	chemin(Ici,h,Haut),
+	chemin(Ici,b,Bas),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('A votre droite se trouve '), write(Droite),nl,
+	write('A votre gauche se trouve rien'),nl,
+	write('En haut se trouve '), write(Haut),nl,
+	write('En bas se trouve '), write(Bas),nl,
+	!.
+
+%rien a droite et a gauche 
+position:-
+	route(Ici),
+	chemin(Ici,h,Haut),
+	chemin(Ici,b,Bas),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('A votre droite se trouve rien'),nl,
+	write('A votre gauche se trouve rien'),nl,
+	write('En haut se trouve '), write(Haut),nl,
+	write('En bas se trouve '), write(Bas),nl,
+	!.

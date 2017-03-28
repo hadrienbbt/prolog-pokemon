@@ -21,8 +21,9 @@ decrire(buisson):-
 decrire(lavanville):-
     estChampion(Dresseur,lavanville),
     dresseur(Dresseur,Pokemon),
+    pokemon(Pokemon,Niveau),
 	write("Vous arrivez à Lavanville. Pour aller plus loin vous devez remporter le badge de la ville, pour cela il vous faut triompher de l’arène."),
-	write(" Le combat vous opposera à "),write(Dresseur),write(" et son "),write(Pokemon),
+	write(" Le combat vous opposera à "),write(Dresseur),write(" et son "),write(Pokemon),write(" de niveau "),write(Niveau),
 	write(". Que voulez-vous faire ?"),
 	!,nl.
 
@@ -34,7 +35,17 @@ decrire(r3):-
 	write("Vous arrivez sur la route numéro 3, face à vous se dresse un Colossinge sauvage. Que faire ? "),nl.
 
 decrire(argenta):-
-	write("Vous arrivez à Argenta. Pour aller plus loin vous devez remporter le badge de la ville, pour cela il vous faut triompher de l’arène. Le combat est lancé !"),nl.
+    estChampion(Dresseur,argenta),
+    dresseur(Dresseur,Pokemon),
+    pokemon(Pokemon,Niveau),
+	write("Vous arrivez à Argenta. Pour aller plus loin vous devez remporter le badge de la ville, pour cela il vous faut triompher de l’arène."),
+	write(" Le combat vous opposera à "),write(Dresseur),write(" et son "),write(Pokemon),write(" de niveau "),write(Niveau),
+	write(". Que voulez-vous faire ?"),
+	!,nl.
+
+decrire(argenta):-
+	write("Pierre vous félicite pour votre victoire. Vous tentez de le remercier mais son regard s'est déjà porté sur la jolie agent Jenny qui passait par là. Il ne fait plus attention à vous et propose à Jenny de s'installer avec lui dans son arène. Ce n'est pas vos affaires, de toutes façons vous n'avez pas de temps à perdre, il faut se remettre en route !"),
+	nl.
 
 decrire(r4):-
 	write("Vous arrivez sur la route numéro 4, vous rencontrez un vieillard qui vous tient le discours suivant : « Plus ancien que moi mais toujours endormi, on trouve près d’ici des objets d’une puissance infinie »"),nl.

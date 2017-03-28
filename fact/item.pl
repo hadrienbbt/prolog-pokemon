@@ -19,3 +19,4 @@ il_y_a(roue,bourgpalette).
 il_y_a(baie,bourgpalette).
 il_y_a(pokeflute,bourgpalette).
 il_y_a(baie,bourgpalette).
+il_y_a(chaine,bourgpalette).

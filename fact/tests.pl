@@ -11,4 +11,5 @@ se_trouve_a(colossinge,bourgpalette).
 se_trouve_a(sabelette,bourgpalette).
 se_trouve_a(bulbizarre,bourgpalette).
 se_trouve_a(carapuce,bourgpalette).
+se_trouve_a(sulfura,bourgpalette).
 se_trouve_a(ronflex,r8).

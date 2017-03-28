@@ -23,20 +23,10 @@
 :- consult('rule/bag.pl').
 :- consult('rule/fight.pl').
 :- consult('rule/belonging.pl').
+:- consult('rule/action.pl').
 
 % ***************** joueur automatique **************
 
 :- consult('autoplay.pl').
 
-
-fouiller :-
-	je_suis_a(Endroit),
-	Endroit==r2,
-	assert(se_trouve_a(salameche,r2)),
-	write('Oh Salamèche se cache derrière les buissons. Que voulez vous faire ?'),
-	!,nl.
-
-fouiller :-
-	write('Il n\'y a rien ici'),
-	!,nl.
-
+:- demarrer.
