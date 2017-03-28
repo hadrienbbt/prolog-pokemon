@@ -20,26 +20,6 @@ retirer_sac(Elem) :-
     assert(sac(NouveauSac)),
     !.
 
-% donner/1 un objet
-
-donner(X,Personne) :-
-    veut(Personne,X),
-    retirer_sac(X),
-    mecanicien(ElemVelo),
-    append([X],ElemVelo,NewElemVelo),
-    retract(mecanicien(ElemVelo)),
-    assert(mecanicien(NewElemVelo)),
-    write('Vous avez donné '),
-    write(X),
-    write(' à '),
-    write(Personne),
-    !, nl.
-
-donner(_,Personne) :-
-    write('Vous ne pouvez pas donner cet objet à '),
-    write(Personne),
-    nl.
-
 %% Règles pour ramasser un objet
 
 ramasser(X) :-

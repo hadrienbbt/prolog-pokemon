@@ -15,7 +15,7 @@ capturer(X) :-
     append([X],E,NouvelleEquipe),
     retract(equipe(E)),
     assert(equipe(NouvelleEquipe)),
-    write('Le pokemon a été capturé !'),
+    write(X),write(' a été capturé !'),
     !, nl.
 
 capturer(_) :-

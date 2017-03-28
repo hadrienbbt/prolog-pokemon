@@ -77,3 +77,6 @@ piste_cyclable(volcan,g,r11).
 % Reciproque
 piste_cyclable(X,h,Y) :- piste_cyclable(Y,b,X).
 piste_cyclable(X,d,Y) :- piste_cyclable(Y,g,X).
+
+% centre pokemon pour les soigner a bourg palette
+centrepokemon(bourgpalette).

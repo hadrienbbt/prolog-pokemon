@@ -1,3 +1,5 @@
+:- dynamic estKO/1.
+
 % attaquer/1 param : pokemon attaquant
 
 attaquer_avec(Attaquant) :-
@@ -43,6 +45,12 @@ attaquer(Attaquant,_,_) :-
     write(Attaquant),
     !, nl.
 
+% Si le pokemon est ko, on ne peut pas attaquer avec lui
+attaquer(Attaquant,_,_) :-
+    estKO(Attaquant),
+    write(Attaquant),write(" est épuisé de son combat précédent. Vous ne pouvez pas combattre avec lui. Allez d'abord le soigner."),
+    nl,!.
+
 % Attaque réussie et gagnée
 attaquer(Attaquant,Dresseur,PokemonDefenseur) :-
     pokemon(Attaquant,NiveauAttaquant),
@@ -55,7 +63,9 @@ attaquer(Attaquant,Dresseur,PokemonDefenseur) :-
 
 % Attaque réussie et perdue
 attaquer(Attaquant,_,PokemonDefenseur) :-
-    write(PokemonDefenseur), write(' a battu '), write(Attaquant), write(' !'),
+    write(PokemonDefenseur), write(' a battu '), write(Attaquant), write(' !'),nl,
+    write(Attaquant),write(" est K.O."),write(" Si vous voulez utiliser ce pokemon dans une autre arène il va falloir aller le soigner au centre pokemon qui se trouve au Bourg-Palette."),
+    assert(estKO(Attaquant)),
     !, nl.
 
 % Si on l a déjà battu
