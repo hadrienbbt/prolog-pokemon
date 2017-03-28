@@ -1,5 +1,7 @@
 %% Décrire %%
 
+decrire(bourgpalette):-
+	write("L'air frais du Bourg Palette. Vous vous y sentez comme chez vous."),nl.
 
 decrire(r1):-
 	write("Vous arrivez sur la route numéro 1, face à vous se dresse un Chenipan sauvage. Que faire ?"),nl.

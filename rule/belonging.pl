@@ -7,6 +7,13 @@ capturer(ronflex) :-
     write("Vous lancez la pokeball mais elle rebondit sur son ventre. Cela n'a aucun effet, il faudra essayer autre chose pour le réveiller."),
     !,nl.
 
+capturer(lokhlass):-
+	equipe(E),
+    append([lokhlass],E,NouvelleEquipe),
+    retract(equipe(E)),
+    assert(equipe(NouvelleEquipe)),
+    !, nl.
+    
 capturer(X) :-
     je_suis_a(Endroit),
     se_trouve_a(X, Endroit),
@@ -39,6 +46,9 @@ relacher(Pokemon) :-
     write(Pokemon),
     nl.
 
+
+%echanger/2 pour donner 2 pokemon au vieillard
+	
 % possede/1
 possede(Pokemon) :-
 	equipe(Y),
