@@ -60,7 +60,7 @@ decrire(celadopole):-
 	!,nl.
 	
 decrire(celadopole):-
-	se_trouve_a(bulbizarre,celadopole).
+	se_trouve_a(bulbizarre,celadopole),
 	write("Vous apercevez Bulbizarre qui s'est échappé des griffes de la team Rocket. Il faudrait le capturer. Que faire ?"),
 	nl.
 

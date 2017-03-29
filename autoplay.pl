@@ -50,6 +50,6 @@ autoplay :-
 	rouler(g),
 	capturer(roucoups),
 	voler(r7),
-	capturer(sulfura),
+	capturer(sulfura).
 	
 	

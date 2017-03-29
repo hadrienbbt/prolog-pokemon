@@ -97,7 +97,7 @@ faire_evoluer(Pokemon):-
 	equipe(X),
 	subtract(X,[chenipan],Y),
     append([papillusion],Y,NouvelleEquipe),
-    retract(equipe(E)),
+    retract(equipe(X)),
     assert(equipe(NouvelleEquipe)),
     write('Vous utilisez votre pierrefeuille sur chenipan, celui-ci evolue en papillusion'),nl,
     !.

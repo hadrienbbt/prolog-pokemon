@@ -49,7 +49,6 @@ relacher(Pokemon) :-
 
 %echanger/2 pour donner 2 pokemon au vieillard
 echanger(PokemonA,PokemonB):-
-	equipe(X),
 	PokemonA == colossinge,
 	PokemonB == papillusion,
 	relacher(PokemonA),
@@ -64,7 +63,6 @@ echanger(PokemonA,PokemonB):-
     !,nl.
     
 echanger(PokemonA,PokemonB):-
-	equipe(X),
 	PokemonA == papillusion,
 	PokemonB == colossinge,
 	relacher(PokemonA),
