@@ -57,7 +57,9 @@ creuser(Direction):-
 	retract(je_suis_a(Ici)),
 	assert(je_suis_a(Labas)),
 	retract(montagne(bourgpalette,b,r7)),
+	retract(montagne(r7,b,safrania)),
 	assert(chemin(bourgpalette,b,r7)),
+	assert(chemin(r7,b,safrania)),
 	nl,
 	decrire(Labas),
 	!.

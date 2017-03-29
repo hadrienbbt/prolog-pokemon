@@ -8,16 +8,11 @@ objet(pedale).
 objet(chaine).
 objet(roue).
 objet(baie).
+objet(pierrefeuille).
 
 
 % il_y_a/2
 
 
 il_y_a(pokeflute,r10).
-
-il_y_a(pedale,bourgpalette).
-il_y_a(roue,bourgpalette).
-il_y_a(baie,bourgpalette).
-il_y_a(pokeflute,bourgpalette).
-il_y_a(baie,bourgpalette).
-il_y_a(chaine,bourgpalette).
+il_y_a(pierrefeuille,r9).

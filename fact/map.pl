@@ -64,6 +64,7 @@ chenal(X,d,Y) :- chenal(Y,g,X).
 
 % montagne/3
 montagne(bourgpalette,b,r7).
+montagne(r7,b,safrania).
 
 % Reciproque
 montagne(X,h,Y) :- montagne(Y,b,X).

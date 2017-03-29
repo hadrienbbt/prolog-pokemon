@@ -76,6 +76,7 @@ echanger(PokemonA,PokemonB):-
     write(PokemonB),
     write('. Vous recevez en retour une masterball qui fait apparaître des pokemons légendaires, cette ball ne rate jamais'),
     assert(se_trouve_a(sulfura,r7)),
+    assert(se_trouve_a(roucoups,r11)),
     !,nl.
 
 echanger(PokemonA,PokemonB):-

@@ -85,3 +85,30 @@ donner(_,Personne) :-
     write(Personne),
     nl.
 
+%faire evoluer /1
+faire_evoluer(Pokemon):-
+	Pokemon == chenipan,
+	sac(Sac),
+	memberchk(pierrefeuille,Sac),
+	possede(chenipan),
+	subtract(Sac,[pierrefeuille],NouveauSac),
+    retract(sac(Sac)),
+    assert(sac(NouveauSac)),
+	equipe(X),
+	subtract(X,[chenipan],Y),
+    append([papillusion],Y,NouvelleEquipe),
+    retract(equipe(E)),
+    assert(equipe(NouvelleEquipe)),
+    write('Vous utilisez votre pierrefeuille sur chenipan, celui-ci evolue en papillusion'),nl,
+    !.
+
+faire_evoluer(Pokemon):-
+	possede(Pokemon),
+	sac(Sac),
+	memberchk(pierrefeuille,Sac),
+	write("La pierre feuille n'a aucun effet sur ce pokemon, elle est efficace sur les pokemons de type Plante et Insecte"),
+	!.
+
+faire_evoluer(_):-
+	write("Prof Chen : tu ne peux pas faire ca. Il te faut une pierre évolutive efficace sur un pokemon."),nl,
+	!.
