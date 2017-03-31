@@ -81,6 +81,4 @@ recompenser(Champion) :-
     ajouter_sac(Recompense),
     write('Vous avez obtenu : '), write(Recompense), nl,
     write(Champion),write(" vous félicite pour votre victoire."),
-    retractall(recompenseVictoire(Champion,Recompense)),
-    je_suis_a(Endroit),
-    decrire(Endroit).
+    retractall(recompenseVictoire(Champion,Recompense)).

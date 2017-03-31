@@ -94,6 +94,8 @@ rouler(Direction):-
 rouler(_):-
 	write('Vous ne pouvez pas rouler ici'),
 	!.
+
+p :- position.
 		
 position:-
 	je_suis_a(Ici),
@@ -203,7 +205,6 @@ position:-
 	write('En bas se trouve rien'),nl,
 	!.
 
-
 position:-
 	je_suis_a(Ici),
 	ville(Ici),
@@ -228,3 +229,41 @@ position:-
 	write('En bas se trouve r4'),nl,
 	write('En haut se trouve r3'),nl,
 	!.
+
+seDeplacerAleatoirement(Pokemon) :-
+    se_trouve_a(Pokemon,Endroit),
+    findall(AutreEndroit,chemin(Endroit,_,AutreEndroit),ListeEndroitsProches),
+    length(ListeEndroitsProches,NBChemins),
+    Suivant is random(NBChemins),
+    nth0(Suivant,ListeEndroitsProches,EndroitSuivant),
+    write(EndroitSuivant).
+
+distance(X,Y,1) :-
+    chemin(X,_,Y),
+    !.
+
+distance(X,Y,2) :-
+    chemin(X,_,Z),
+    chemin(Z,_,Y),
+    !.
+
+distance(X,Y,3) :-
+    chemin(X,_,Z),
+    chemin(Z,_,W),
+    chemin(W,_,Y),
+    !.
+
+distance(X,Y,3) :-
+    chemin(X,_,Z),
+    chemin(Z,_,W),
+    chemin(W,_,Y),
+    !.
+
+distance(X,Y,4) :-
+    chemin(X,_,Z),
+    chemin(Z,_,W),
+    chemin(W,_,V),
+    chemin(V,_,Y),
+    !.
+
+distance(_,_,_) :- write("Trop loin"), nl.

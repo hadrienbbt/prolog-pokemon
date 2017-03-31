@@ -1,5 +1,7 @@
 %% Décrire %%
 
+dec :- je_suis_a(X), decrire(X).
+
 decrire(bourgpalette):-
 	write("L'air frais du Bourg Palette. Vous vous y sentez comme chez vous."),nl.
 
@@ -7,9 +9,9 @@ decrire(r1):-
 	write("Vous arrivez sur la route numéro 1, face à vous se dresse un Chenipan sauvage. Que faire ?"),nl.
 
 decrire(jadielle):-
-	write("Vous voici à Jadielle, la première ville que vous traversez dans votre aventure.
-	Vous cherchez des informations en demandant à tous les habitants s’ils n’ont pas aperçu vos Pokémons.
-	Finalement une jeune fille vous conseille de voyager vers l’est sur la route numéro 2."),nl.
+	write("Vous voici à Jadielle."),nl,
+	write("Vous cherchez des informations en demandant à tous les habitants s’ils n’ont pas aperçu vos Pokémons."),nl,
+	write("Finalement une jeune fille vous conseille de voyager vers l’est sur la route numéro 2."),nl.
 
 decrire(r2):-
 	write("Vous arrivez sur la route numéro 2, vous apercevez au nord des buissons derrière lesquels semble surgir une flamme. Prendrez vous le risque de vous y aventurer ?"),nl.
@@ -32,7 +34,12 @@ decrire(lavanville):-
 	nl.
 
 decrire(r3):-
-	write("Vous arrivez sur la route numéro 3, face à vous se dresse un Colossinge sauvage. Que faire ? "),nl.
+    se_trouve_a(colossinge,r3),
+	write("Vous arrivez sur la route numéro 3, face à vous se dresse un Colossinge sauvage. Que faire ? "),nl,
+	!.
+
+decrire(r3):-
+	write("Vous arrivez sur la route numéro 3."),nl.
 
 decrire(argenta):-
     estChampion(Dresseur,argenta),
@@ -79,8 +86,6 @@ decrire(safrania):-
 decrire(safrania):-
 	write("Vous arrivez à Safrania"),
 	nl.
-decrire(r6):-
-	write("Vous arrivez sur la route numéro 6, un mécano se trouve ici, il dit s’y connaitre en réparation de vélo. Voulez vous lui donner vos pièces de vélo ?"),nl.
 
 decrire(r6):-
 	equipe(Y),
@@ -90,8 +95,13 @@ decrire(r6):-
 	!.
 
 decrire(r6):-
+    sac(X),
+    memberchk(velo,X),
 	write("Le mécano vous salue, rien d'autre à signaler"),nl,
 	!.
+
+decrire(r6):-
+    write("Vous arrivez sur la route numéro 6, un mécano se trouve ici, il dit s’y connaitre en réparation de vélo. Voulez vous lui donner vos pièces de vélo ?"),nl.
 
 decrire(r7):-
 	sac(Sac),
@@ -111,7 +121,8 @@ decrire(r9):-
 	write(" Vous arrivez sur la route numéro 9. Une pierre feuille se trouve sur le bord de la route, elle permet de faire evoluer des pokemons de type plante et insecte"),nl.
 
 decrire(carminsurmer):-
-	write("Vous arrivez à Carmin sur Mer. Vous reconnaissez votre Carapuce qui est redevenu chef de gang. Il faut absolument tenter de le raisonner. Vous engagez la discussion."),nl.
+	write("Vous arrivez à Carmin sur Mer. Vous reconnaissez votre Carapuce qui est redevenu chef de gang. Il faut absolument tenter de le raisonner. Vous engagez la discussion."),nl,
+	raisonner(carapuce).
 
 decrire(r10):-
 	possede(lokhlass),

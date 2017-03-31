@@ -3,6 +3,13 @@
 :- dynamic se_trouve_a/2, capturer/1, afficher_equipe/0.
 :- retractall(se_trouve_a(_)).
 
+c :-
+    je_suis_a(Endroit),
+    se_trouve_a(X, Endroit),
+    capturer(X),!.
+
+c :- write('Il n\'y a pas de pokemon à capturer ici.'), nl.
+
 capturer(ronflex) :-
     write("Vous lancez la pokeball mais elle rebondit sur son ventre. Cela n'a aucun effet, il faudra essayer autre chose pour le réveiller."),
     !,nl.
@@ -30,6 +37,7 @@ capturer(X) :-
 
 
 capturer(_) :-
+<<<<<<< HEAD
 	sac(Y),
 	memberchk(pokeball,Y),	
     write('Il n\'y a pas de pokemon à capturer ici.'),
@@ -39,6 +47,10 @@ capturer(_):-
 	write('Vous n\'avez pas de pokeball dans votre sac, allez voir le professeur Chen'),
 	!,nl.
 
+=======
+    write('Il n\'y a pas de pokemon à capturer ici.'),
+    nl.
+>>>>>>> f7bf0185c3007064247d2d7697c9f636b5c95938
 
 % relacher/1 pour un pokemon
 
@@ -110,6 +122,8 @@ ne_possede_pas([H|Q],Pokemon) :-
 	H \= Pokemon,
 	ne_possede_pas(Q,Pokemon),
 	!.
+
+e :- afficher_equipe.
 
 afficher_equipe :-
     equipe(X),
