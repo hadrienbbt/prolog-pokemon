@@ -42,7 +42,7 @@ decrire(argenta):-
 	!,nl.
 
 decrire(argenta):-
-	write("Vous arrivez à Argenta").
+	write("Vous arrivez à Argenta"),
 	nl.
 
 decrire(r4):-
