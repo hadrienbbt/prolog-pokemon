@@ -34,6 +34,32 @@ ramasser(_) :-
         write('Je ne vois rien ici.'),
         nl.
    
+   
+demander(X):-
+	X==pokeball,
+	sac(Y),
+	memberchk(X,Y),
+	je_suis_a(bourgpalette),	
+	write('Vous avez deja une pokeball, le professeur Chen vous conseille de l\'utiliser avant de revenir le voir'),
+	!,nl.
+
+demander(X):-
+	X==pokeball,
+	je_suis_a(bourgpalette),	
+	ajouter_sac(X),
+	write('Le professeur Chen vous donne une pokeball et vous encourage a continuer votre chasse aux pokemons'),
+	!,nl.
+
+	
+demander(_):-
+	je_suis_a(bourgpalette),
+	write('Le professeur Chen n\'a pas ca pour vous, vous pouvez en revanche lui demander une pokeball'),
+	!,nl.
+
+demander(_):-
+	write('Tu ne peux rien demander ici, va voir le prof Chen au Bourg Palette si tu veux une pokeball'),
+	!,nl.
+
 %% Règles pour utiliser un objet
 
 utiliser(X):-
