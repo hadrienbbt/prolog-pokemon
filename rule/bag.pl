@@ -58,6 +58,25 @@ utiliser(_):-
 		write('Prof Chen : Vous ne pouvez pas utliser ca ici'),
 		!,nl.
 
+s :- afficher_sac.
+
+afficher_sac :-
+    write("Vous possédez :"),nl,
+    sac(X),
+    afficher_sac(X).
+
+afficher_sac([Item]) :- write(Item), write(" x1"),!,nl.
+
+afficher_sac([]) :- write("Votre sac est vide."),!,nl.
+
+afficher_sac([H|Q]) :-
+    write(H), write(" x1"),nl,
+    afficher_sac(Q).
+
+
+
+
+
 
  
 

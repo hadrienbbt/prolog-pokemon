@@ -112,3 +112,38 @@ faire_evoluer(Pokemon):-
 faire_evoluer(_):-
 	write("Prof Chen : tu ne peux pas faire ca. Il te faut une pierre évolutive efficace sur un pokemon."),nl,
 	!.
+
+raisonner(carapuce) :-
+    write("Carapuce dit :"),nl,
+    write("Je ne veux plus revenir avec toi, j'ai retrouvé mes amis et on s'amuse à semer la pagaille au village. C'est plus marrant."),nl,
+    write("Vous avez le choix : "),nl,
+    write("Entrez rep_a. pour dire 'Mais Carapuce, tu es un Pokemon tu es fait pour affronter d'autres Pokemons au côtés d'un dresseur comme moi, reviens s'il te plait.'"),nl,
+    write("Entrez rep_b. pour dire 'Je t'en prie carapuce, j'ai besoin de toi pour m'aider à retrouver tous mes pokemons, et tu en fais partie je ne veux pas te perdre.'"),nl.
+
+rep_a :- fausse_rep.
+
+rep_b :-
+    write("Carapuce dit :"),nl,
+    write("Mes amis ne veulent pas me laisser repartir avec toi, je suis leur chef et sans moi ils sont perdus."),nl,
+    write("Vous avez le choix : "),nl,
+    write("Entrez rep_c. pour dire 'Tes amis ne valent pas une série de victoire et la puissance que tu pourrais acquérir à mes côtés. Il faut que tu viennes avec moi pour accomplir ta destinée de Pokemon'"),nl,
+    write("Entrez rep_d. pour dire 'Tes amis comprendront que tu veuilles retrouver tes amis. Il suffit de leur dire que tu ne peux pas les abandonner aux mains de mauvaises personnes.'"),nl.
+
+rep_c :- fausse_rep.
+
+rep_d :-
+    write("Carapuce dit : Alors promets moi que tu ne m'abandonneras plus comme tu l'as fait."),nl,
+    write("."),nl,
+    write("Vous avez le choix : "),nl,
+    write("Entrez rep_e. Désolé, promis ça n'arrivera plus'"),nl,
+    write("Entrez rep_f. Ce n'est pas ma faute je suis tombé de mon vélo et j'ai perdu connaissance.'"),nl.
+
+rep_e :-
+    write("Votre carapuce est convaincu par votre réponse. Il réintègre votre équipe."),nl,
+    capturer(carapuce).
+
+rep_f :- fausse_rep.
+
+fausse_rep :-
+    write("Votre carapuce ne semble pas convaincu par votre réponse. Il part jouer avec ses amis. Vous courrez pour le ratrapper et essayer de le raisonner."),nl,
+    raisonner(carapuce).
