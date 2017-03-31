@@ -57,7 +57,9 @@ creuser(Direction):-
 	retract(je_suis_a(Ici)),
 	assert(je_suis_a(Labas)),
 	retract(montagne(bourgpalette,b,r7)),
+	retract(montagne(r7,b,safrania)),
 	assert(chemin(bourgpalette,b,r7)),
+	assert(chemin(r7,b,safrania)),
 	nl,
 	decrire(Labas),
 	!.
@@ -71,3 +73,158 @@ creuser(_):-
 creuser(_):-
 	write('Vous ne pouvez pas creuser ici'),
 	!,nl.
+	
+rouler(Direction):-
+	sac(Sac),
+	memberchk(velo,Sac),
+	je_suis_a(Ici),
+	piste_cyclable(Ici,Direction,Labas),
+	retract(je_suis_a(Ici)),
+	assert(je_suis_a(Labas)),
+	nl,
+	decrire(Labas),
+	!.
+
+rouler(Direction):-
+	je_suis_a(Ici),
+	piste_cyclable(Ici,Direction,_),
+	write('Vous n\'avez pas réparé votre vélo'),nl,
+	!.
+
+rouler(_):-
+	write('Vous ne pouvez pas rouler ici'),
+	!.
+		
+position:-
+	je_suis_a(Ici),
+	route(Ici),
+	chemin(Ici,d,Droite),
+	chemin(Ici,g,Gauche),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('A votre droite se trouve '), write(Droite),nl,
+	write('A votre gauche se trouve '), write(Gauche),nl,
+	!.
+
+position:-
+	je_suis_a(Ici),
+	route(Ici),
+	chemin(Ici,b,Bas),
+	chemin(Ici,h,Haut),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('En bas se trouve '), write(Bas),nl,
+	write('En haut se trouve '), write(Haut),nl,
+	!.
+
+%mer
+position:-
+	je_suis_a(Ici),
+	route(Ici),	
+	chenal(Ici,g,Gauche),
+	chemin(Ici,d,Droite),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('A votre droite se trouve '), write(Droite),nl,
+	write('A votre gauche se trouve un chenal pour rejoindre '), write(Gauche),nl,
+	write('En haut se trouve rien'),nl,
+	write('En bas se trouve rien'),nl,
+	!.
+
+position:-
+	je_suis_a(Ici),
+	ville(Ici),	
+	chenal(Ici,d,Droite),
+	chemin(Ici,h,Haut),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('A votre droite se trouve un chenal pour rejoindre '), write(Droite),nl,
+	write('A votre gauche se trouve rien'),nl,
+	write('En haut se trouve '), write(Haut),nl,
+	write('En bas se trouve rien'),nl,
+	!.
+
+%piste cyclable
+position:-
+	je_suis_a(r11),
+	write('Vous êtes sur une piste cyclable'),nl,
+	write('La voie de gauche mène à Celadopole'),nl,
+	write('La voie de droite mène à un volcan'),nl,
+	!.
+
+position:-
+	je_suis_a(celadopole),
+	write('Vous êtes à Celadopole'),nl,
+	write('La voie du haut mène à r4'),nl,
+	write('La voie de gauche mène à r5'),nl,
+	write('La voie de droite mène à la r11 via une piste cyclable'),nl,
+	!.
+
+position:-
+	je_suis_a(volcan),
+	write('Vous êtes sur le volcan'),nl,
+	write('La voie de gauche mène à r11 via une piste cyclable'),nl,
+	!.
+
+position:-
+	je_suis_a(Ici),	
+	chemin(Ici,d,Droite),
+	chemin(Ici,g,Gauche),
+	chemin(Ici,h,Haut),
+	chemin(Ici,b,Bas),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('A votre droite se trouve '), write(Droite),nl,
+	write('A votre gauche se trouve '), write(Gauche),nl,
+	write('En haut se trouve '), write(Haut),nl,
+	write('En bas se trouve '), write(Bas),nl,
+	!.
+
+
+%montagne en bas
+position:-
+	je_suis_a(Ici),	
+	chemin(Ici,d,Droite),
+	chemin(Ici,g,Gauche),
+	chemin(Ici,h,Haut),
+	montagne(Ici,b,Bas),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('A votre droite se trouve '), write(Droite),nl,
+	write('A votre gauche se trouve '), write(Gauche),nl,
+	write('En haut se trouve '), write(Haut),nl,
+	write('En bas se dresse une montagne, la '), write(Bas),nl,
+	!.
+	
+%montagne en haut
+position:-
+	je_suis_a(Ici),	
+	chemin(Ici,d,Droite),
+	chemin(Ici,g,Gauche),
+	montagne(Ici,h,Haut),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('A votre droite se trouve '), write(Droite),nl,
+	write('A votre gauche se trouve '), write(Gauche),nl,
+	write('En haut se dresse une montagne, la '), write(Haut),nl,
+	write('En bas se trouve rien'),nl,
+	!.
+
+
+position:-
+	je_suis_a(Ici),
+	ville(Ici),
+	chemin(Ici,b,Bas),
+	chemin(Ici,d,Droite),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('A votre droite se trouve '), write(Droite),nl,
+	write('En bas se trouve '), write(Bas),nl,
+	!.
+
+position:-
+	je_suis_a(lavanville),
+	write('Vous vous trouvez a Lavanville'),nl,
+	write('A votre gauche se trouve r2'),nl,
+	write('En bas se trouve r3'),nl,
+	!.
+
+position:-
+	je_suis_a(argenta),
+	write('Vous vous trouvez a Argenta'),nl,
+	write('A votre gauche se trouve r6'),nl,
+	write('En bas se trouve r4'),nl,
+	write('En haut se trouve r3'),nl,
+	!.

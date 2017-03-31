@@ -34,14 +34,15 @@ reparer_velo :-
     nl,!.
 
 reparer_velo :-
-    mecanicien(Outils),
-    memberchk(roue,Outils),
+	sac(Outils),
+	memberchk(roue,Outils),
     memberchk(chaine,Outils),
     memberchk(pedale,Outils),
     donner(roue,mecanicien),
     donner(chaine,mecanicien),
     donner(pedale,mecanicien),
     write("Votre vélo est réparé, vous pouvez désormais emprunter les pistes cyclables !"),
+    ajouter_sac(velo),
     nl,!.
 
 reparer_velo :-
@@ -52,7 +53,21 @@ reparer_velo :-
 
 % donner/2 un objet à une personne
 
+donner(X,Personne):-
+	je_suis_a(azuria),
+	veut(Personne,X),
+	X == baie,
+	retirer_sac(X),
+	write('Vous avez donné '),
+    write(X),
+    write(' à '),
+    write(Personne),nl,
+    write('Lokhlass se sent mieux il revient à vos côtés.'),nl,
+    capturer(lokhlass),
+    !.
+
 donner(X,Personne) :-
+	je_suis_a(r6),
     veut(Personne,X),
     retirer_sac(X),
     mecanicien(ElemVelo),
@@ -70,3 +85,30 @@ donner(_,Personne) :-
     write(Personne),
     nl.
 
+%faire evoluer /1
+faire_evoluer(Pokemon):-
+	Pokemon == chenipan,
+	sac(Sac),
+	memberchk(pierrefeuille,Sac),
+	possede(chenipan),
+	subtract(Sac,[pierrefeuille],NouveauSac),
+    retract(sac(Sac)),
+    assert(sac(NouveauSac)),
+	equipe(X),
+	subtract(X,[chenipan],Y),
+    append([papillusion],Y,NouvelleEquipe),
+    retract(equipe(X)),
+    assert(equipe(NouvelleEquipe)),
+    write('Vous utilisez votre pierrefeuille sur chenipan, celui-ci evolue en papillusion'),nl,
+    !.
+
+faire_evoluer(Pokemon):-
+	possede(Pokemon),
+	sac(Sac),
+	memberchk(pierrefeuille,Sac),
+	write("La pierre feuille n'a aucun effet sur ce pokemon, elle est efficace sur les pokemons de type Plante et Insecte"),
+	!.
+
+faire_evoluer(_):-
+	write("Prof Chen : tu ne peux pas faire ca. Il te faut une pierre évolutive efficace sur un pokemon."),nl,
+	!.

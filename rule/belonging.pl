@@ -7,6 +7,13 @@ capturer(ronflex) :-
     write("Vous lancez la pokeball mais elle rebondit sur son ventre. Cela n'a aucun effet, il faudra essayer autre chose pour le réveiller."),
     !,nl.
 
+capturer(lokhlass):-
+	equipe(E),
+    append([lokhlass],E,NouvelleEquipe),
+    retract(equipe(E)),
+    assert(equipe(NouvelleEquipe)),
+    !, nl.
+    
 capturer(X) :-
     je_suis_a(Endroit),
     se_trouve_a(X, Endroit),
@@ -38,6 +45,48 @@ relacher(Pokemon) :-
     write('Vous ne possédez pas '),
     write(Pokemon),
     nl.
+
+
+%echanger/2 pour donner 2 pokemon au vieillard
+echanger(PokemonA,PokemonB):-
+	PokemonA == colossinge,
+	PokemonB == papillusion,
+	relacher(PokemonA),
+	relacher(PokemonB),
+    ajouter_sac(masterball),
+    write('Vous donnez '),
+    write(PokemonA),
+    write(' et '),
+    write(PokemonB),
+    write('. Vous recevez en retour une masterball qui fait apparaître des pokemons légendaires, cette ball ne rate jamais'),
+    assert(se_trouve_a(sulfura,r7)),
+    !,nl.
+    
+echanger(PokemonA,PokemonB):-
+	PokemonA == papillusion,
+	PokemonB == colossinge,
+	relacher(PokemonA),
+	relacher(PokemonB),
+    ajouter_sac(masterball),
+    write('Vous donnez '),
+    write(PokemonA),
+    write(' et '),
+    write(PokemonB),
+    write('. Vous recevez en retour une masterball qui fait apparaître des pokemons légendaires, cette ball ne rate jamais'),
+    assert(se_trouve_a(sulfura,r7)),
+    assert(se_trouve_a(roucoups,r11)),
+    !,nl.
+
+echanger(PokemonA,PokemonB):-
+	equipe(X),
+	memberchk(PokemonA,X),
+	memberchk(PokemonB,X),
+	write('Le vieillard ne veut pas de ces pokémons'),
+	!,nl.
+
+echanger(_,_):-
+	write('Vous ne pouvez pas faire cet échange ici.'),
+	!,nl.
 
 % possede/1
 possede(Pokemon) :-

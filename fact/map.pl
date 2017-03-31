@@ -50,7 +50,6 @@ chemin(r5,g,safrania).
 chemin(r6,g,bourgpalette).
 chemin(safrania,g,r10).
 chemin(bourgpalette,g,r8).
-%chemin(r8,g,azuria).
 
 % Reciproque
 chemin(Y,h,X) :- chemin(X,b,Y).
@@ -65,6 +64,7 @@ chenal(X,d,Y) :- chenal(Y,g,X).
 
 % montagne/3
 montagne(bourgpalette,b,r7).
+montagne(r7,b,safrania).
 
 % Reciproque
 montagne(X,h,Y) :- montagne(Y,b,X).

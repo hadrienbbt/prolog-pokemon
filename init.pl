@@ -18,6 +18,7 @@ estChampion(pierre,argenta).
 estChampion(morgane,safrania).
 estChampion(teamrocket,celadopole).
 
+
 demarrer :-
     write("Sacha a battu la ligue Pokemon, ses pokemons sont épuisés alors il décide de les apporter au centre pokemon pour qu’ils puissent se reposer et manger un peu. Il part donc avec sa bicyclette vers le bourg palette pour rendre visite à sa mère pendant que ses pokemons seront entre de bonnes mains."),
     nl, write("Sur le chemin, il roule sur une énorme bosse au sol, perd l’équilibre et tombe de son vélo. Il allait très vite et la douleur de sa chute lui fait perdre connaissance."),
