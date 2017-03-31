@@ -46,12 +46,7 @@ capturer(_) :-
 capturer(_):-
 	write('Vous n\'avez pas de pokeball dans votre sac, allez voir le professeur Chen'),
 	!,nl.
-
-=======
-    write('Il n\'y a pas de pokemon à capturer ici.'),
-    nl.
->>>>>>> f7bf0185c3007064247d2d7697c9f636b5c95938
-
+	
 % relacher/1 pour un pokemon
 
 relacher(Pokemon) :-
