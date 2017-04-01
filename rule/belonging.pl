@@ -10,6 +10,11 @@ c :-
 
 c :- write('Il n\'y a pas de pokemon à capturer ici.'), nl.
 
+capturer(sulfura) :-
+    retirer_sac(masterball),
+    write("Vous lancez la masterball"),nl,
+    capturer(sulfura).
+
 capturer(ronflex) :-
     write("Vous lancez la pokeball mais elle rebondit sur son ventre. Cela n'a aucun effet, il faudra essayer autre chose pour le réveiller."),
     !,nl.
@@ -63,11 +68,17 @@ relacher(Pokemon) :-
     write(Pokemon),
     nl.
 
+echanger :-
+    equipe(E),
+    memberchk(colossinge,E),
+    memberchk(papillusion,E),
+    echanger(colossinge,papillusion),!.
+    
+echanger :-
+    write("Il vous manque un pokemon.").
 
 %echanger/2 pour donner 2 pokemon au vieillard
 echanger(PokemonA,PokemonB):-
-	PokemonA == colossinge,
-	PokemonB == papillusion,
 	relacher(PokemonA),
 	relacher(PokemonB),
     ajouter_sac(masterball),
@@ -75,23 +86,10 @@ echanger(PokemonA,PokemonB):-
     write(PokemonA),
     write(' et '),
     write(PokemonB),
-    write('. Vous recevez en retour une masterball qui fait apparaître des pokemons légendaires, cette ball ne rate jamais'),
-    assert(se_trouve_a(sulfura,r7)),
-    !,nl.
-    
-echanger(PokemonA,PokemonB):-
-	PokemonA == papillusion,
-	PokemonB == colossinge,
-	relacher(PokemonA),
-	relacher(PokemonB),
-    ajouter_sac(masterball),
-    write('Vous donnez '),
-    write(PokemonA),
-    write(' et '),
-    write(PokemonB),
-    write('. Vous recevez en retour une masterball qui fait apparaître des pokemons légendaires, cette ball ne rate jamais'),
+    write('. Vous recevez en retour une masterball qui fait apparaître des pokemons légendaires, cette ball ne rate jamais.'),nl,
     assert(se_trouve_a(sulfura,r7)),
     assert(se_trouve_a(roucoups,r11)),
+    write("Au même moment, vous voyez un pokemon volant inconnu du pokedex. Il se dirige vers l'ouest. Réussirez-vous à le ratrapper ?"),
     !,nl.
 
 echanger(PokemonA,PokemonB):-
@@ -102,7 +100,7 @@ echanger(PokemonA,PokemonB):-
 	!,nl.
 
 echanger(_,_):-
-	write('Vous ne pouvez pas faire cet échange ici.'),
+	write('Vous ne pouvez pas faire d\'échange ici.'),
 	!,nl.
 
 % possede/1

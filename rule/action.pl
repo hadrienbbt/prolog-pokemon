@@ -27,6 +27,8 @@ fouiller :-
 	write('Il n\'y a rien ici'),
 	!,nl.
 
+% donner générique ? TODO
+
 reparer_velo :-
     je_suis_a(Endroit),
     Endroit \= r6,
@@ -53,16 +55,15 @@ reparer_velo :-
 
 % donner/2 un objet à une personne
 
-donner(X,Personne):-
+donner(X):-
 	je_suis_a(azuria),
-	veut(Personne,X),
+	veut(infirmierejoelle,X),
 	X == baie,
 	retirer_sac(X),
 	write('Vous avez donné '),
     write(X),
-    write(' à '),
-    write(Personne),nl,
-    write('Lokhlass se sent mieux il revient à vos côtés.'),nl,
+    write(' à l\'infirmière Joelle.'),nl,
+    write('Lokhlass se sent mieux, il revient à vos côtés. Vous pouvez maintenant utiliser Surf.'),nl,
     capturer(lokhlass),
     !.
 
@@ -99,7 +100,7 @@ faire_evoluer(Pokemon):-
     append([papillusion],Y,NouvelleEquipe),
     retract(equipe(X)),
     assert(equipe(NouvelleEquipe)),
-    write('Vous utilisez votre pierrefeuille sur chenipan, celui-ci evolue en papillusion'),nl,
+    write('Vous utilisez votre pierrefeuille sur chenipan, celui-ci evolue directement en papillusion'),nl,
     !.
 
 faire_evoluer(Pokemon):-
@@ -140,7 +141,10 @@ rep_d :-
 
 rep_e :-
     write("Votre carapuce est convaincu par votre réponse. Il réintègre votre équipe."),nl,
-    capturer(carapuce).
+    equipe(E),
+    append([carapuce],E,NouvelleEquipe),
+    retract(equipe(E)),
+    assert(equipe(NouvelleEquipe)).
 
 rep_f :- fausse_rep.
 

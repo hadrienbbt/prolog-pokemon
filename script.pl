@@ -15,7 +15,6 @@
 :- consult('fact/item.pl').
 :- consult('fact/character.pl').
 :- consult('fact/description.pl').
-% :- consult('fact/tests.pl').
 
 % ****************** règles ******************
 

@@ -16,4 +16,3 @@ objet(pierrefeuille).
 
 il_y_a(pokeflute,r10).
 il_y_a(pierrefeuille,r9).
-il_y_a(pokeflute,bourgpalette).
