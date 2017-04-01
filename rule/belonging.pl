@@ -40,9 +40,7 @@ capturer(X) :-
     write(X),write(' a été capturé !'),
     !, nl.
 
-
 capturer(_) :-
-<<<<<<< HEAD
 	sac(Y),
 	memberchk(pokeball,Y),	
     write('Il n\'y a pas de pokemon à capturer ici.'),

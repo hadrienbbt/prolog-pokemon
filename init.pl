@@ -28,5 +28,6 @@ demarrer :-
     nl, nl, write("Arrivé au Bourg-Palette, il retrouve sa mère et le professeur Chen, et leur explique sa mésaventure. Sa mère, défaite, lui prépare son plat préféré pour le réconforter mais Sacha est très en colère, il veut retrouver ses Pokemons. Il décide donc après ce bon repas de partir à la recherche de Pikachu et de ses autres pokemons."),
     nl, nl, write("Voici le mode d'emploi du jeu :"),nl,
     % Afficher mode d emploi
-    nl, write("A l'avenir, pour afficher le mode d'emploi, entrez 'mode_emploi.' dans la fenêtre, et appuyez sur entrée."),nl.
+    help,
+    write("A l'avenir, pour afficher le mode d'emploi, entrez 'help.' dans la fenêtre, et appuyez sur entrée."),nl.
 

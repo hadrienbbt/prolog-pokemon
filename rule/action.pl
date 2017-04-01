@@ -53,9 +53,9 @@ reparer_velo :-
     write(Outils),
     nl.
 
-% donner/2 un objet à une personne
+% donner/1 et donner/2 un objet à une personne
 
-donner(X):-
+donner(X) :-
 	je_suis_a(azuria),
 	veut(infirmierejoelle,X),
 	X == baie,
@@ -64,8 +64,14 @@ donner(X):-
     write(X),
     write(' à l\'infirmière Joelle.'),nl,
     write('Lokhlass se sent mieux, il revient à vos côtés. Vous pouvez maintenant utiliser Surf.'),nl,
-    capturer(lokhlass),
+    equipe(E),
+    append([lokhlass],E,NouvelleEquipe),
+    retract(equipe(E)),
+    assert(equipe(NouvelleEquipe)),
     !.
+
+donner(_) :-
+    write("Action impossible actuellement").
 
 donner(X,Personne) :-
 	je_suis_a(r6),
