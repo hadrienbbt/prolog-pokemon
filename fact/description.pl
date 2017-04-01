@@ -118,10 +118,10 @@ decrire(r6):-
 decrire(r7):-
 	je_suis_a(Ici),
 	se_trouve_a(sulfura,Ici),
-	write("Vous vous trouvez sous la montagne. Oh soudain vous apercevez un superbe pokémon légendaire, c’est Sulfura!"),nl.
+	write("Vous vous trouvez sous la montagne en r7. Oh soudain vous apercevez un superbe pokémon légendaire, c’est Sulfura!"),nl.
 
 decrire(r7):-
-	write("Vous vous trouvez sous la montagne."),nl.
+	write("Vous vous trouvez sous la montagne en r7."),nl.
 
 
 decrire(r8):-

@@ -1,39 +1,3 @@
-Pour connaitre sa position et ce qui se trouve autour, l'utilisateur utilisera position.
-
-Pour connaitre le contenu de son equipe pokemon, l'utilisateur utilisera equipe(X).
-
-Pour connaitre le contenu de son sac, l'utilisateur utilisera sac(X).
-
-Pour fouiller un lieu, l'utilisateur utilisera fouiller.
-
-Pour se déplacer l'utilisateur utilisera les commandes suivantes : 
-h pour aller en haut, b pour aller en bas, g pour aller a gauche et d pour aller a droite.
-
-Pour un déplacement spécial il devra utiliser le nom du déplacement spécial et la direction :
-rouler(h/b/g/d), creuser(h/b/g/d), surfer(h/b/g/d), voler(endroit ou il souhaite aller)
-
-Pour capturer un pokemon il faut utiliser capturer et le nom du pokemon.
-Exemple pour capturer chenipan : capturer(chenipan).
-
-Pour ramasser un objet il faut utiliser ramasser et le nom de l'objet.
-Exemple pour ramasser une baie : ramasser(baie).
-
-Pour combattre un dresseur, il faut attaquer avec un pokemon, cela en utilisant attaquer_avec
-en se servant de l'un de vos pokemons
-Exemple pour attaquer avec votre chenipan : attaquer_avec(chenipan).
-
-Pour utiliser un objet, il faut utiliser la méthode utiliser et le nom de l'objet.
-Exemple pour utiliser la pokeflute : utiliser(pokeflute).
-
-Pour donner un objet, il faut utiliser donner ainsi que l'objet et le destinataire de l'objet.
-Exemple pour donner un bonbon a tom : donner(bonbon,tom).
-
-Pour réparer son vélo, l'utilisateur utilisera simplement reparer_velo.
-
-
-
-________ 
-
 ****** DIRECTIONS ********
 h — Aller sur la carte du haut
 b — Aller sur la carte du bas
