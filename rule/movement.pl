@@ -62,7 +62,7 @@ creuser(Direction):-
 	assert(chemin(r7,b,safrania)),
 	nl,
 	decrire(Labas),
-	!.
+	!,nl.
 
 creuser(_):-
 	equipe(X),
