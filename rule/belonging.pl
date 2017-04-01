@@ -27,6 +27,8 @@ capturer(lokhlass):-
     !, nl.
     
 capturer(X) :-
+	sac(Y),
+	memberchk(pokeball,Y),
     je_suis_a(Endroit),
     se_trouve_a(X, Endroit),
     retract(se_trouve_a(X, Endroit)),
@@ -34,13 +36,22 @@ capturer(X) :-
     append([X],E,NouvelleEquipe),
     retract(equipe(E)),
     assert(equipe(NouvelleEquipe)),
+    retirer_sac(pokeball),
     write(X),write(' a été capturé !'),
     !, nl.
 
-capturer(_) :-
-    write('Il n\'y a pas de pokemon à capturer ici.'),
-    nl.
 
+capturer(_) :-
+<<<<<<< HEAD
+	sac(Y),
+	memberchk(pokeball,Y),	
+    write('Il n\'y a pas de pokemon à capturer ici.'),
+    !,nl.
+        
+capturer(_):-
+	write('Vous n\'avez pas de pokeball dans votre sac, allez voir le professeur Chen'),
+	!,nl.
+	
 % relacher/1 pour un pokemon
 
 relacher(Pokemon) :-

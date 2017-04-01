@@ -51,7 +51,7 @@ surfer(Direction) :-
 	decrire(Labas),
 	!.
 
-surfer(_):-
+surfer(_) :-
 	write("Vous ne pouvez pas surfer ici").
 
 tunnel :-
@@ -61,7 +61,7 @@ tunnel :-
 
 tunnel :- write('Vous ne pouvez pas creuser ici'), nl.
 
-creuser(Direction):-
+creuser(Direction) :-
 	possede(sabelette),
 	je_suis_a(Ici),
 	montagne(Ici,Direction,Labas),
@@ -88,8 +88,6 @@ creuser(_):-
 creuser(_):-
 	write('Vous ne pouvez pas creuser ici'),
 	!,nl.
-
-
 	
 rouler(Direction):-
 	sac(Sac),
