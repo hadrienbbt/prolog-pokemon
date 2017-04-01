@@ -27,7 +27,7 @@ aller(Direction) :-
 aller(_) :-
     write('Vous ne pouvez pas aller dans cette direction.').
 
-voler(Ville) :-
+vol(Ville) :-
 	possede(roucoups),
 	je_suis_a(Ici),
 	retract(je_suis_a(Ici)),
@@ -35,8 +35,13 @@ voler(Ville) :-
 	decrire(Ville),
 	!.
 
-voler(_):-
+vol(_):-
 	write("Vous ne pouvez pas utiliser vol"), nl.
+
+surf :-
+    je_suis_a(Ici),
+    chenal(Ici,Direction,_),
+    surfer(Direction).
 
 surfer(Direction) :-
 	possede(lokhlass),
@@ -47,13 +52,21 @@ surfer(Direction) :-
 	decrire(Labas),
 	!.
 
-surfer(_):-
+surfer(_) :-
 	write("Vous ne pouvez pas surfer ici").
-	
-creuser(Direction):-
+
+tunnel :-
+	je_suis_a(Ici),
+    montagne(Ici,Direction,_),
+    creuser(Direction),!.
+
+tunnel :- write('Vous ne pouvez pas creuser ici'), nl.
+
+creuser(Direction) :-
 	possede(sabelette),
 	je_suis_a(Ici),
 	montagne(Ici,Direction,Labas),
+	write('La route est désormais creusée, vous pouvez circuler librement.'),
 	retract(je_suis_a(Ici)),
 	assert(je_suis_a(Labas)),
 	retract(montagne(bourgpalette,b,r7)),
@@ -126,8 +139,6 @@ position:-
 	write('Vous vous trouvez a '), write(Ici),nl,
 	write('A votre droite se trouve '), write(Droite),nl,
 	write('A votre gauche se trouve un chenal pour rejoindre '), write(Gauche),nl,
-	write('En haut se trouve rien'),nl,
-	write('En bas se trouve rien'),nl,
 	!.
 
 position:-
@@ -137,9 +148,7 @@ position:-
 	chemin(Ici,h,Haut),
 	write('Vous vous trouvez a '), write(Ici),nl,
 	write('A votre droite se trouve un chenal pour rejoindre '), write(Droite),nl,
-	write('A votre gauche se trouve rien'),nl,
 	write('En haut se trouve '), write(Haut),nl,
-	write('En bas se trouve rien'),nl,
 	!.
 
 %piste cyclable
@@ -202,7 +211,6 @@ position:-
 	write('A votre droite se trouve '), write(Droite),nl,
 	write('A votre gauche se trouve '), write(Gauche),nl,
 	write('En haut se dresse une montagne, la '), write(Haut),nl,
-	write('En bas se trouve rien'),nl,
 	!.
 
 position:-

@@ -38,8 +38,8 @@ ramasser(X) :-
 ramasser(_) :-
     write('Je ne vois rien ici.'),
     nl.
-   
-   
+
+
 demander(X):-
 	X==pokeball,
 	sac(Y),

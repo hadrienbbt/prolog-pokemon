@@ -29,3 +29,45 @@ Pour donner un objet, il faut utiliser donner ainsi que l'objet et le destinatai
 Exemple pour donner un bonbon a tom : donner(bonbon,tom).
 
 Pour réparer son vélo, l'utilisateur utilisera simplement reparer_velo.
+
+
+
+________ 
+
+****** DIRECTIONS ********
+h — Aller sur la carte du haut
+b — Aller sur la carte du bas
+g — Aller sur la carte de gauche
+d — Aller sur la carte de droite
+
+****** DÉPLACEMENTS SPÉCIAUX *********
+surf 		 — Utiliser la capacité surf si c’est possible
+tunnel 		 — Utiliser la capacité tunnel si c’est possible
+vol(NOM_VILLE) 	 — Utiliser la capacité vol
+rouler(DIRECTION)— Utiliser le vélo sur les pistes cyclables
+
+****** INFORMATIONS *********
+dec — Décrire le lieu actuel
+pos — Obtenir des informations sur ce qu’il y a autour
+e   — Afficher les pokemons de l’équipe
+s   — Afficher le contenu du sac
+
+******** OBJETS **********
+ram		  — Ramasser un objet par terre
+pokeflute	  — Jouer de la flûte
+reparer_velo	  — Repare le velo
+donner(baie)	  — Donner une baie
+demander(pokeball)— Demander une nouvelle pokeball au professeur Chen
+
+******** ACTIONS *********
+c 		— Capturer le pokemon
+fouiller	— Fouiller le lieu actuel
+echanger	— Echange de pokemon
+faire_evoluer(P)— Faire évoluer un pokemon
+
+******** COMBAT **********
+attaquer_avec(POKEMON)	— Attaque le pokemon d’un dresseur avec un pokemon de l’équipe
+soigner			— Soigne les pokemons KO
+
+
+
