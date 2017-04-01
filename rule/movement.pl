@@ -214,6 +214,17 @@ position:-
 	!.
 
 position:-
+	je_suis_a(Ici),	
+	chemin(Ici,d,Droite),
+	chemin(Ici,g,Gauche),
+	chemin(Ici,h,Haut),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('A votre droite se trouve '), write(Droite),nl,
+	write('A votre gauche se trouve '), write(Gauche),nl,
+	write('En haut se trouve '), write(Haut),nl,
+	!.
+
+position:-
 	je_suis_a(Ici),
 	ville(Ici),
 	chemin(Ici,b,Bas),

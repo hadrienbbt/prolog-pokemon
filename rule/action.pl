@@ -68,7 +68,6 @@ donner(X) :-
     append([lokhlass],E,NouvelleEquipe),
     retract(equipe(E)),
     assert(equipe(NouvelleEquipe)),
->>>>>>> 27a3d52ba0db81cd6a6f0725bef1cf9f48bf256e
     !.
 
 donner(_) :-
