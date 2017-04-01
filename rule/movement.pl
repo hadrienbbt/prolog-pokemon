@@ -1,17 +1,14 @@
 :- dynamic chemin/3, montagne/3.
 :- retractall(montagne(_,_,_)).
 
+h :- affichagePikachu,aller(h),!. % Déplacer aussi pikachu si il est placé
 h :- aller(h).
+b :- affichagePikachu,aller(b),!. % Déplacer aussi pikachu si il est placé
 b :- aller(b).
+g :- affichagePikachu,aller(g),!. % Déplacer aussi pikachu si il est placé
 g :- aller(g).
+d :- affichagePikachu,aller(d),!. % Déplacer aussi pikachu si il est placé
 d :- aller(d).
-
-% montagne/3
-montagne(bourgpalette,b,r7).
-
-% Reciproque
-montagne(X,h,Y) :- montagne(Y,b,X).
-montagne(X,d,Y) :- montagne(Y,g,X).
 
 % aller/1
 
@@ -49,6 +46,7 @@ surfer(Direction) :-
 	retract(je_suis_a(Ici)),
 	assert(je_suis_a(Labas)),
 	decrire(Labas),
+	write("Vous utilisez surf pour arriver à "),write(Labas),nl,
 	!.
 
 surfer(_) :-
@@ -240,13 +238,31 @@ position:-
 	write('En haut se trouve r3'),nl,
 	!.
 
-seDeplacerAleatoirement(Pokemon) :-
+endroitAleatoire(Endroit) :-
+    findall(Ville,ville(Ville),ListeVilles),
+    findall(Route,route(Route),ListeRoutes),
+    append(ListeVilles,ListeRoutes,ListeEndroits),
+    length(ListeEndroits,NBEndroits),
+    Alea is random(NBEndroits),
+    nth0(Alea,ListeEndroits,Endroit).
+
+placer_aleatoirement(Pokemon) :-
+    endroitAleatoire(Endroit),
+    assert(se_trouve_a(Pokemon,Endroit)).
+
+
+deplacer_aleatoirement(Pokemon) :-
     se_trouve_a(Pokemon,Endroit),
-    findall(AutreEndroit,chemin(Endroit,_,AutreEndroit),ListeEndroitsProches),
+    findall(AutreEndroit,chemin(Endroit,_,AutreEndroit),LE),
+    findall(AutreEndroit,piste_cyclable(Endroit,_,AutreEndroit),LP),
+    findall(AutreEndroit,chenal(Endroit,_,AutreEndroit),LC),
+    append(LE,LP,LT),
+    append(LT,LC,ListeEndroitsProches),
     length(ListeEndroitsProches,NBChemins),
     Suivant is random(NBChemins),
     nth0(Suivant,ListeEndroitsProches,EndroitSuivant),
-    write(EndroitSuivant).
+    retract(se_trouve_a(Pokemon,Endroit)),
+    assert(se_trouve_a(Pokemon,EndroitSuivant)).
 
 distance(X,Y,1) :-
     chemin(X,_,Y),
@@ -276,4 +292,45 @@ distance(X,Y,4) :-
     chemin(V,_,Y),
     !.
 
-distance(_,_,_) :- write("Trop loin"), nl.
+distance(_,_,0).
+
+% Cas où on est à la même position que Pikachu
+affichagePikachu :-
+    se_trouve_a(pikachu,PikaPos),
+    je_suis_a(MyPos),
+    PikaPos==MyPos,
+    nl,write("Pikachu se cache ici derrière un buisson ! Capturez-le pour finir le jeu."),nl,!.
+
+% Cas où Pikachu est sur une carte adjacente
+affichagePikachu :-
+    se_trouve_a(pikachu,PikaPos),
+    je_suis_a(MyPos),
+    distance(MyPos,PikaPos,Distance),
+    Distance==1,
+    nl,write("Pikachu est à 1 pas de vous !"),nl,!.
+
+% Cas où Pikachu est trop loin
+affichagePikachu :-
+    deplacer_aleatoirement(pikachu),
+    se_trouve_a(pikachu,PikaPos),
+    je_suis_a(MyPos),
+    distance(MyPos,PikaPos,Distance),
+    Distance==0,
+    nl,write("Pikachu est trop loin pour que votre sens de l'amitié le détecte."),nl,!.
+
+% Cas où Pikachu est sur une carte adjacente
+affichagePikachu :-
+    se_trouve_a(pikachu,PikaPos),
+    je_suis_a(MyPos),
+    distance(MyPos,PikaPos,Distance),
+    Distance==1,
+    nl,write("Pikachu est à 1 pas de vous !"),nl,!.
+
+% Cas où Pikachu est plutôt proche
+affichagePikachu :-
+    je_suis_a(MyPos),
+    se_trouve_a(pikachu,PikaPos),
+    distance(MyPos,PikaPos,Distance),
+    Distance>1,
+    write(Distance),
+    nl,write("Pikachu est à "),write(Distance),write(" pas de vous !"),nl.

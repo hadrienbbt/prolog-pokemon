@@ -43,4 +43,3 @@ se_trouve_a(sabelette,r5).
 se_trouve_a(ronflex,r8).
 se_trouve_a(carapuce,carminsurmer).
 se_trouve_a(bulbizarre,celadopole).
-se_trouve_a(sulfura,r6).

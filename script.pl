@@ -1,7 +1,7 @@
 % **************** init ******************
 
 :- dynamic je_suis_a/1, se_trouve_a/2, il_y_a/2, ajouter_sac/2, sac/1, equipe/1, mecanicien/1, dresseur/2, recompenseVictoire/2.
-:- retractall(dresseur(_)), retractall(equipe(_)), retractall(sac(_)), retractall(je_suis_a(_)), retractall(se_trouve_a(_)), retractall(il_y_a(_)), retractall(ajouter_sac(_)), retractall(mecanicien(_)), retractall(recompenseVictoire(_)).
+:- retractall(dresseur(_)), retractall(equipe(_)), retractall(sac(_)), retractall(je_suis_a(_)), retractall(se_trouve_a(_,_)), retractall(il_y_a(_)), retractall(ajouter_sac(_)), retractall(mecanicien(_)), retractall(recompenseVictoire(_)).
 
 :- consult('init.pl').
 

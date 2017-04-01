@@ -10,10 +10,28 @@ c :-
 
 c :- write('Il n\'y a pas de pokemon à capturer ici.'), nl.
 
+capturer(pikachu) :-
+    write("BRAVO ! Vous avez fini le jeu, vous avez trouvé tous vos pokemons. Vous pouvez dès maintenant partir dans la région de Johto et capturer plein de nouveaux pokemons ! A bientot !"),!.
+
 capturer(sulfura) :-
+    je_suis_a(Endroit),
+    se_trouve_a(sulfura, Endroit),
     retirer_sac(masterball),
     write("Vous lancez la masterball"),nl,
-    capturer(sulfura).
+    retract(se_trouve_a(sulfura, Endroit)),
+    equipe(E),
+    append([sulfura],E,NouvelleEquipe),
+    retract(equipe(E)),
+    assert(equipe(NouvelleEquipe)),
+    write("Vous avez capturé un pokemon légendaire ! Bravo, grâce à lui vous êtes invincible."),nl,
+    write("Maintenant il est temps de retrouver votre fidèle pikachu pour réunir votre équipe au complet !"),nl,
+    write("Il se cache quelque part dans la région de Kanto mais il doit sûrement se déplacer et vous chercher... Il pourrait être n'importe où!"),nl,
+    write("Heureusement, votre sens de l'amitié vous guide vers lui : vous pouvez sentir lorsqu'il n'est pas loin. À vous de jouer, déplacez-vous pour le retrouver."),
+    nl,
+    placer_aleatoirement(pikachu),!.
+
+capturer(sulfura) :-
+    write("Il vous faut une pokeball spéciale pour capturer sulfura."),nl,!.
 
 capturer(ronflex) :-
     write("Vous lancez la pokeball mais elle rebondit sur son ventre. Cela n'a aucun effet, il faudra essayer autre chose pour le réveiller."),

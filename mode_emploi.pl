@@ -14,7 +14,7 @@ help :-
     nl,
     write("************ INFORMATIONS ***********"),nl,
     write("dec — Décrire le lieu actuel"),nl,
-    write("pos — Obtenir des informations sur ce qu’il y a autour"),nl,
+    write("p   — Obtenir des informations sur la position et ce qu’il y a autour"),nl,
     write("e   — Afficher les pokemons de l’équipe"),nl,
     write("s   — Afficher le contenu du sac"),nl,
     nl,

@@ -19,6 +19,11 @@ decrire(jadielle):-
 	write("Finalement une jeune fille vous conseille de voyager vers l’est sur la route numéro 2."),nl.
 
 decrire(r2):-
+    equipe(E),
+    memberchk(salameche,E),
+	write("Vous arrivez sur la route numéro 2."),nl,!.
+
+decrire(r2):-
 	write("Vous arrivez sur la route numéro 2, vous apercevez au nord des buissons derrière lesquels semble surgir une flamme. Prendrez vous le risque de vous y aventurer ?"),nl.
 
 decrire(buisson):-

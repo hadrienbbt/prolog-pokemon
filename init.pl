@@ -29,5 +29,5 @@ demarrer :-
     nl, nl, write("Voici le mode d'emploi du jeu :"),nl,
     % Afficher mode d emploi
     help,
-    write("A l'avenir, pour afficher le mode d'emploi, entrez 'help.' dans la fenêtre, et appuyez sur entrée."),nl.
+    write("A l'avenir, pour afficher le mode d'emploi, entrez 'help' dans la fenêtre, et appuyez sur entrée."),nl.
 
