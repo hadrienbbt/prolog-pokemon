@@ -8,6 +8,7 @@ d :- aller(d).
 
 % montagne/3
 montagne(bourgpalette,b,r7).
+montagne(r7,b,safrania).
 
 % Reciproque
 montagne(X,h,Y) :- montagne(Y,b,X).
@@ -26,7 +27,7 @@ aller(Direction) :-
 aller(_) :-
     write('Vous ne pouvez pas aller dans cette direction.').
 
-vol(Ville) :-
+voler(Ville) :-
 	possede(roucoups),
 	je_suis_a(Ici),
 	retract(je_suis_a(Ici)),
@@ -34,13 +35,8 @@ vol(Ville) :-
 	decrire(Ville),
 	!.
 
-vol(_):-
+voler(_):-
 	write("Vous ne pouvez pas utiliser vol"), nl.
-
-surf :-
-    je_suis_a(Ici),
-    chenal(Ici,Direction,_),
-    surfer(Direction).
 
 surfer(Direction) :-
 	possede(lokhlass),
@@ -51,30 +47,19 @@ surfer(Direction) :-
 	decrire(Labas),
 	!.
 
-surfer(_) :-
+surfer(_):-
 	write("Vous ne pouvez pas surfer ici").
-
-tunnel :-
-	je_suis_a(Ici),
-    montagne(Ici,Direction,_),
-    creuser(Direction),!.
-
-tunnel :- write('Vous ne pouvez pas creuser ici'), nl.
-
-creuser(Direction) :-
+	
+creuser(Direction):-
 	possede(sabelette),
 	je_suis_a(Ici),
 	montagne(Ici,Direction,Labas),
-	write('La route est désormais creusée, vous pouvez circuler librement.'),
 	retract(je_suis_a(Ici)),
 	assert(je_suis_a(Labas)),
-	write("Vous vous trouvez actuellement à "),write(Labas),write('.'),nl,
 	retract(montagne(bourgpalette,b,r7)),
 	retract(montagne(r7,b,safrania)),
-    write("montagne out"),nl,
 	assert(chemin(bourgpalette,b,r7)),
 	assert(chemin(r7,b,safrania)),
-    write("chemin in"),
 	nl,
 	decrire(Labas),
 	!,nl.
@@ -141,6 +126,8 @@ position:-
 	write('Vous vous trouvez a '), write(Ici),nl,
 	write('A votre droite se trouve '), write(Droite),nl,
 	write('A votre gauche se trouve un chenal pour rejoindre '), write(Gauche),nl,
+	write('En haut se trouve rien'),nl,
+	write('En bas se trouve rien'),nl,
 	!.
 
 position:-
@@ -150,7 +137,9 @@ position:-
 	chemin(Ici,h,Haut),
 	write('Vous vous trouvez a '), write(Ici),nl,
 	write('A votre droite se trouve un chenal pour rejoindre '), write(Droite),nl,
+	write('A votre gauche se trouve rien'),nl,
 	write('En haut se trouve '), write(Haut),nl,
+	write('En bas se trouve rien'),nl,
 	!.
 
 %piste cyclable
@@ -213,6 +202,7 @@ position:-
 	write('A votre droite se trouve '), write(Droite),nl,
 	write('A votre gauche se trouve '), write(Gauche),nl,
 	write('En haut se dresse une montagne, la '), write(Haut),nl,
+	write('En bas se trouve rien'),nl,
 	!.
 
 position:-

@@ -43,7 +43,6 @@ autoplay :-
 	ramasser(pierrefeuille),
 	faire_evoluer(chenipan),
 	b,
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Hadrien Carapuce
 	surfer(d),
 	d,
 	d,

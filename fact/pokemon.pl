@@ -39,7 +39,9 @@ maitrise(sabelette, tunnel).
 
 se_trouve_a(chenipan,r1).
 se_trouve_a(colossinge,r3).
-se_trouve_a(sabelette,bourgpalette).
+se_trouve_a(sabelette,r5).
+se_trouve_a(roucoups,bourgpalette).
+se_trouve_a(lokhlass,bourgpalette).
 se_trouve_a(ronflex,r8).
 se_trouve_a(carapuce,carminsurmer).
 se_trouve_a(bulbizarre,celadopole).

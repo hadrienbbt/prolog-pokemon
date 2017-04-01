@@ -37,7 +37,6 @@ chemin(lavanville,b,r3).
 chemin(r3,b,argenta).
 chemin(argenta,b,r4).
 chemin(r4,b,celadopole).
-chemin(r7,b,safrania).
 chemin(azuria,b,r9).
 chemin(r9,b,carminsurmer).
 
