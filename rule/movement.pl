@@ -10,6 +10,14 @@ g :- aller(g).
 d :- affichagePikachu,aller(d),!. % Déplacer aussi pikachu si il est placé
 d :- aller(d).
 
+% montagne/3
+montagne(bourgpalette,b,r7).
+montagne(r7,b,safrania).
+
+% Reciproque
+montagne(X,h,Y) :- montagne(Y,b,X).
+montagne(X,d,Y) :- montagne(Y,g,X).
+
 % aller/1
 
 aller(Direction) :-
@@ -66,16 +74,13 @@ creuser(Direction) :-
 	write('La route est désormais creusée, vous pouvez circuler librement.'),
 	retract(je_suis_a(Ici)),
 	assert(je_suis_a(Labas)),
-	write("Vous vous trouvez actuellement à "),write(Labas),write('.'),nl,
 	retract(montagne(bourgpalette,b,r7)),
 	retract(montagne(r7,b,safrania)),
-    write("montagne out"),nl,
 	assert(chemin(bourgpalette,b,r7)),
 	assert(chemin(r7,b,safrania)),
-    write("chemin in"),
 	nl,
 	decrire(Labas),
-	!.
+	!,nl.
 
 creuser(_):-
 	equipe(X),
@@ -211,6 +216,17 @@ position:-
 	write('A votre droite se trouve '), write(Droite),nl,
 	write('A votre gauche se trouve '), write(Gauche),nl,
 	write('En haut se dresse une montagne, la '), write(Haut),nl,
+	!.
+
+position:-
+	je_suis_a(Ici),	
+	chemin(Ici,d,Droite),
+	chemin(Ici,g,Gauche),
+	chemin(Ici,h,Haut),
+	write('Vous vous trouvez a '), write(Ici),nl,
+	write('A votre droite se trouve '), write(Droite),nl,
+	write('A votre gauche se trouve '), write(Gauche),nl,
+	write('En haut se trouve '), write(Haut),nl,
 	!.
 
 position:-
