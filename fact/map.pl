@@ -60,7 +60,7 @@ chenal(carminsurmer,d,r10).
 
 % Reciproque
 chenal(X,h,Y) :- chenal(Y,b,X).
-chenal(X,d,Y) :- chenal(Y,g,X).
+chenal(X,g,Y) :- chenal(Y,d,X).
 
 % montagne/3
 montagne(bourgpalette,b,r7).

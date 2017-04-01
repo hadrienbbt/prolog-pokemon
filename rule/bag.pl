@@ -22,19 +22,27 @@ retirer_sac(Elem) :-
 
 %% Règles pour ramasser un objet
 
+ram :-
+    je_suis_a(Endroit),
+    il_y_a(X, Endroit),
+    ramasser(X).
+
 ramasser(X) :-
-        je_suis_a(Endroit),
-        il_y_a(X, Endroit),
-        ajouter_sac(X),
-        retract(il_y_a(X, Endroit)),
-        write('Objet ajouté à votre sac.'),
-        !, nl.
+    je_suis_a(Endroit),
+    il_y_a(X, Endroit),
+    ajouter_sac(X),
+    retract(il_y_a(X, Endroit)),
+    write('Objet ajouté à votre sac.'),
+    !, nl.
 
 ramasser(_) :-
-        write('Je ne vois rien ici.'),
-        nl.
+    write('Je ne vois rien ici.'),
+    nl.
    
 %% Règles pour utiliser un objet
+
+pokeflute :-
+    utiliser(pokeflute).
 
 utiliser(X):-
 		X==pokeflute,
