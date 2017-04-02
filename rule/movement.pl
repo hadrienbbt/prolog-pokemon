@@ -348,5 +348,4 @@ affichagePikachu :-
     se_trouve_a(pikachu,PikaPos),
     distance(MyPos,PikaPos,Distance),
     Distance>1,
-    write(Distance),
     nl,write("Pikachu est à "),write(Distance),write(" pas de vous !"),nl.

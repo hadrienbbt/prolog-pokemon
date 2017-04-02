@@ -70,9 +70,7 @@ relacher(Pokemon) :-
     subtract(Y,[Pokemon],NouvelleEquipe),
     retract(equipe(Y)),
     assert(equipe(NouvelleEquipe)),
-    write('Vous avez relâché : '),
-    write(Pokemon),
-    !, nl.
+    !.
 
 relacher(Pokemon) :-
     write('Vous ne possédez pas '),

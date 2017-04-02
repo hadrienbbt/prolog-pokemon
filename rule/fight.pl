@@ -1,6 +1,6 @@
 :- dynamic estKO/1.
 
-% attaquer/1 param : pokemon attaquant
+% attaquer_avec/1 param : pokemon attaquant
 
 attaquer_avec(Attaquant) :-
     je_suis_a(Endroit),

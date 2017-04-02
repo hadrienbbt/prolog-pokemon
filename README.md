@@ -1,10 +1,10 @@
-## projet-prolog
-# How to execute
-run
+# projet-prolog
+## How to execute
+run in a prolog interpreter
 
-`consult('script.pl').`
+`?- consult('script.pl').`
 
 and enjoy !
 
-# Authors
+## Authors
 Marc Lepagnot et Hadrien Barbat
