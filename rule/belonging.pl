@@ -90,6 +90,10 @@ echanger :-
 
 %echanger/2 pour donner 2 pokemon au vieillard
 echanger(PokemonA,PokemonB):-
+	possede(salameche),
+	possede(bulbizarre),
+	possede(lokhlass),
+	possede(carapuce),
 	relacher(PokemonA),
 	relacher(PokemonB),
     ajouter_sac(masterball),
@@ -107,7 +111,7 @@ echanger(PokemonA,PokemonB):-
 	equipe(X),
 	memberchk(PokemonA,X),
 	memberchk(PokemonB,X),
-	write('Le vieillard ne veut pas de ces pokémons'),
+	write('Le vieillard ne veut pas de ces pokémons. Le vieillard vous rappelle que vous devez avoir récupéré les pokemons suivants : salameche, bulbizarre, lokhlass et carapuce.'),
 	!,nl.
 
 echanger(_,_):-
